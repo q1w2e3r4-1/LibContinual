@@ -28,6 +28,7 @@ class Model(nn.Module):
 
 class ICarl(nn.Module):
     def __init__(self, backbone, feat_dim, num_class, **kwargs):
+        print("haha")
         super().__init__()
 
         # device setting

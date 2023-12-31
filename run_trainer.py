@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # config = Config("./config/finetune.yaml").get_config_dict()
     config = Config("./config/lucir.yaml").get_config_dict()
     # config = Config("./config/lwf.yaml").get_config_dict()
-
+    print(config)
     if config["n_gpu"] > 1:
         pass
         os.environ["CUDA_VISIBLE_DEVICES"] = config["device_ids"]
