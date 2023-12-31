@@ -4,7 +4,7 @@ import logging
 import torch
 from torch import nn
 
-from inclearn.lib import factory
+from core.lib import factory
 
 from .classifiers import (Classifier, CosineClassifier, DomainClassifier, MCCosineClassifier)
 from .postprocessors import FactorScalar, HeatedUpScalar, InvertedFactorScalar

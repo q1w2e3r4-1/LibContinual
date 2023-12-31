@@ -9,7 +9,7 @@ from torch import nn
 from torch.nn import functional as F
 
 import gensim
-from inclearn.lib.data import fetch_word_embeddings
+from core.lib.data import fetch_word_embeddings
 
 from .mlp import MLP
 

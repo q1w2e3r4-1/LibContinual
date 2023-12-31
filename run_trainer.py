@@ -36,9 +36,10 @@ def get_default_config():
 if __name__ == "__main__":
     default = get_default_config()
     # config = Config("./config/finetune.yaml").get_config_dict()
-    config = Config("./config/lwf.yaml").get_config_dict()
     # config = Config("./config/lwf.yaml").get_config_dict()
-
+    # config = Config("./config/lwf.yaml").get_config_dict()
+    config = Config("./config/podnet_cnn_cifar100.yaml").get_config_dict()
+    #
     config = dict(default, **config) # 用yaml的参数覆盖默认参数
     print(config)
     if config["n_gpu"] > 1:

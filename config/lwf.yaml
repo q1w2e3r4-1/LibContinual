@@ -8,7 +8,7 @@ includes:
 data_root: D:/data/douillard/cifar100/cifar100
 image_size: 32
   
-save_path: ./
+save_path: ./checkpoint/
 # data
 init_cls_num: 10
 inc_cls_num: 10

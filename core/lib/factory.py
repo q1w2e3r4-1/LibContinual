@@ -3,12 +3,12 @@ import warnings
 import torch
 from torch import optim
 
-from inclearn import models
-from inclearn.convnet import (
+from core import model
+from core.lib.convnet import (
     densenet, my_resnet, my_resnet2, my_resnet_brn, my_resnet_mcbn, my_resnet_mtl, resnet,
     resnet_mtl, ucir_resnet, vgg
 )
-from inclearn.lib import data, schedulers
+from core.lib import data, schedulers
 
 
 def get_optimizer(params, optimizer, lr, weight_decay=0.0):
@@ -59,17 +59,17 @@ def get_convnet(convnet_type, **kwargs):
 
 def get_model(args):
     dict_models = {
-        "icarl": models.ICarl,
-        "lwf": None,
-        "e2e": models.End2End,
-        "fixed": None,
-        "oracle": None,
-        "bic": models.BiC,
-        "ucir": models.UCIR,
-        "podnet": models.PODNet,
-        "lwm": models.LwM,
-        "zil": models.ZIL,
-        "gdumb": models.GDumb
+        # "icarl": models.ICarl,
+        # "lwf": None,
+        # "e2e": models.End2End,
+        # "fixed": None,
+        # "oracle": None,
+        # "bic": models.BiC,
+        # "ucir": models.UCIR,
+        # "podnet": model.PODNet,
+        # "lwm": models.LwM,
+        # "zil": models.ZIL,
+        # "gdumb": models.GDumb
     }
 
     model = args["model"].lower()

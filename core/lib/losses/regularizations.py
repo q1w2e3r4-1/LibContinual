@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from torch.nn import functional as F
 
-from inclearn.lib import utils
+from core.lib import utils
 
 
 def weights_orthogonality(weights, margin=0.):

@@ -3,7 +3,7 @@ import torch
 from sklearn.cluster import KMeans
 from torch.nn import functional as F
 
-from inclearn.lib import utils
+from core.lib import utils
 
 
 def closest_to_mean(features, nb_examplars):

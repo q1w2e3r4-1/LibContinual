@@ -4,7 +4,7 @@ import logging
 import torch
 from torch import nn
 
-from inclearn.lib.network import hook
+from core.lib.network import hook
 from tqdm import tqdm
 
 logger = logging.getLogger(__name__)

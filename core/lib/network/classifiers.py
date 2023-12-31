@@ -7,8 +7,8 @@ from sklearn.cluster import KMeans
 from torch import nn
 from torch.nn import functional as F
 
-from inclearn.lib import distance as distance_lib
-from inclearn.lib import utils
+from core.lib import distance as distance_lib
+from core.lib import utils
 
 from .postprocessors import FactorScalar, HeatedUpScalar
 

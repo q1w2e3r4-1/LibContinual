@@ -4,7 +4,7 @@ import math
 import torch
 from torch.nn import functional as F
 
-from inclearn.lib import vizualization
+from core.lib import vizualization
 
 
 def mer_loss(new_logits, old_logits):

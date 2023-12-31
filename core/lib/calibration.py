@@ -2,7 +2,7 @@ import torch
 from torch import optim
 from torch.nn import functional as F
 
-from inclearn.lib.network import (CalibrationWrapper, LinearModel, TemperatureScaling)
+from core.lib.network import (CalibrationWrapper, LinearModel, TemperatureScaling)
 
 
 def calibrate(network, loader, device, indexes, calibration_type="linear"):
