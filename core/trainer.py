@@ -99,7 +99,7 @@ class Trainer(object):
         # os.environ["CUDA_VISIBLE_DEVICES"] = str(config['device_ids'])
 
         device = torch.device("cuda:{}".format(config['device_ids']))
-
+        print("device :",device)
         return device
 
 
