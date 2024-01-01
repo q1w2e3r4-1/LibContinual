@@ -21,10 +21,11 @@ class PODNet(ICarl):
           Douillard et al. 2020
     """
 
-    def __init__(self, args):
+    def __init__(self, **args):
+        print("args when init:", args)
         self._disable_progressbar = args.get("no_progressbar", False)
 
-        self._device = args["device"][0]
+        self._device = args["device"]
         self._multiple_devices = args["device"]
 
         # Optimization:

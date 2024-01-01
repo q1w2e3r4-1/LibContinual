@@ -84,8 +84,9 @@ def get_instance(module, name, config, **kwargs):
     attributes = dir(module)
     print("attr = ",attributes)
     print(kwargs)
+    print(name)
 
-    return getattr(module, config[name]["name"])(**kwargs)
+    return getattr(module, config[name]["name"])(**kwargs) # 这里有所修改，因为args是作为字典传入的
 
 # https://github.com/ildoonet/pytorch-gradual-warmup-lr/blob/master/warmup_scheduler/scheduler.py
 class GradualWarmupScheduler(_LRScheduler):

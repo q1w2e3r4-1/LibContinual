@@ -22,21 +22,22 @@ class Trainer(object):
     """
 
     def __init__(self, rank, config):
+        print("config when init trainer:" ,config)
         self.rank = rank
         self.config = config
         self.config['rank'] = rank
         self.distribute = self.config['n_gpu'] > 1  # 暂时不考虑分布式训练
         # (
-        #     self.result_path, 
-        #     self.log_path, 
-        #     self.checkpoints_path, 
+        #     self.result_path,
+        #     self.log_path,
+        #     self.checkpoints_path,
         #     self.viz_path
         # ) = self._init_files(config)                     # todo   add file manage
-        self.logger = self._init_logger(config)           
-        self.device = self._init_device(config) 
+        self.logger = self._init_logger(config)
+        self.device = self._init_device(config)
         # self.writer = self._init_writer(self.viz_path)   # todo   add tensorboard
-        
-        print(self.config)
+
+        print("temp1 :", self.config)
 
         self.init_cls_num, self.inc_cls_num, self.task_num = self._init_data(config)
         self.model = self._init_model(config)  # todo add parameter select
@@ -44,7 +45,7 @@ class Trainer(object):
             self.train_loader,
             self.test_loader,
         ) = self._init_dataloader(config)
-        
+
         self.buffer = self._init_buffer(config)
         (
             self.init_epoch,
@@ -173,13 +174,15 @@ class Trainer(object):
             tuple: A tuple of the model and model's type.
         """
         backbone = get_instance(arch, "backbone", config)
-        dic = {"backbone": backbone, "device": self.device}
+        config["backbone"] = backbone
+        config["device"] = self.device
+        # dic = {"backbone": backbone, "device": self.device}
 
-        model = get_instance(arch, "classifier", config, **dic)
+        model = get_instance(arch, "classifier", config, **config)
         print(model)
         print("Trainable params in the model: {}".format(count_parameters(model)))
 
-        model = model.to(self.device)
+        # model = model.to(self.device)
         return model
     
     def _init_dataloader(self, config):
