@@ -7,7 +7,7 @@ includes:
 
 data_root: D:/data/douillard/cifar100/cifar100
 
-save_path: ./checkpoint/
+save_path: .
 
 # data
 init_cls_num: 10
@@ -32,8 +32,8 @@ batch_size: 128
 #    gamma: 0.5
 #    step_size: 30
 #
-#backbone:
-#  name: resnet18
+backbone:
+  name: resnet18
 #  kwargs:
 #    num_classes: 100
 #    args:
@@ -47,8 +47,8 @@ batch_size: 128
 #    batch_size: 32
 #    strategy: random     # random, equal_random, reservoir, herding
 #
-#classifier:
-#  name: PODNet
+classifier:
+  name: PODNet
 #  kwargs:
 #    num_class: 100
 #    feat_dim: 512

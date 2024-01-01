@@ -7,7 +7,7 @@ from torch import nn
 from core.lib.network import hook
 from tqdm import tqdm
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 
 def single_loop(
@@ -32,10 +32,10 @@ def single_loop(
 
     grad, act = None, None
     if len(devices) > 1:
-        logger.info("Duplicating model on {} gpus.".format(len(devices)))
+        print("Duplicating model on {} gpus.".format(len(devices)))
         training_network = nn.DataParallel(network, devices)
         if network.gradcam_hook:
-            logger.info("Adding hook on multi-gpu model.")
+            print("Adding hook on multi-gpu model.")
             grad, act, back_hook, for_hook = hook.get_gradcam_hook(training_network)
             training_network.module.convnet.last_conv.register_backward_hook(back_hook)
             training_network.module.convnet.last_conv.register_forward_hook(for_hook)
@@ -89,7 +89,7 @@ def single_loop(
             accuracy = eval_function(training_network, val_loader)
             training_network.train()
 
-            logger.info("Val accuracy: {}".format(accuracy))
+            print("Val accuracy: {}".format(accuracy))
 
             if accuracy > best_acc:
                 best_epoch = epoch
@@ -99,11 +99,11 @@ def single_loop(
                 wait += 1
 
             if early_stopping and early_stopping["patience"] > wait:
-                logger.warning("Early stopping!")
+                print("Early stopping!")
                 break
 
     if eval_every_x_epochs:
-        logger.info("Best accuracy reached at epoch {} with {}%.".format(best_epoch, best_acc))
+        print("Best accuracy reached at epoch {} with {}%.".format(best_epoch, best_acc))
 
 
 def _print_metrics(metrics, prog_bar, epoch, nb_epochs, nb_batches, task, n_tasks):
@@ -119,6 +119,7 @@ def _print_metrics(metrics, prog_bar, epoch, nb_epochs, nb_batches, task, n_task
         for metric_name, metric_value in metrics.items()
     )
 
+    # print("T{}/{}, E{}/{} => {}".format(task + 1, n_tasks, epoch + 1, nb_epochs, pretty_metrics))
     prog_bar.set_description(
         "T{}/{}, E{}/{} => {}".format(task + 1, n_tasks, epoch + 1, nb_epochs, pretty_metrics)
     )

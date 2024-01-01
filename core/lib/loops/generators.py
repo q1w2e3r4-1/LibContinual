@@ -11,8 +11,6 @@ from tqdm import tqdm
 
 from .loops import _print_metrics
 
-logger = logging.getLogger(__name__)
-
 
 def perclass_loop(
     inc_dataset,
@@ -36,7 +34,7 @@ def perclass_loop(
     max_per_batch=3000
 ):
     if len(devices) > 1:
-        logger.info("Duplicating model on {} gpus.".format(len(devices)))
+        print("Duplicating model on {} gpus.".format(len(devices)))
         training_network = nn.DataParallel(network, devices)
     else:
         training_network = network
@@ -54,7 +52,7 @@ def perclass_loop(
 
     if preprocessing is not None:
         all_features = torch.cat(list(visual_features.values()))
-        logger.info(f"Features shape: {str(all_features.shape)}.")
+        print(f"Features shape: {str(all_features.shape)}.")
         preprocessing.fit(all_features)
         del all_features
         for k in list(visual_features.keys()):
@@ -62,7 +60,7 @@ def perclass_loop(
 
     # Actually train the generator
     if n_epochs > 0:
-        logger.info("Training the generator...")
+        print("Training the generator...")
     for epoch in range(n_epochs):
         metrics = collections.defaultdict(float)
 
@@ -132,7 +130,7 @@ def linear_loop(
 
     # Actually train the generator
     if n_epochs > 0:
-        logger.info("Training the linear transformation...")
+        print("Training the linear transformation...")
     for epoch in range(n_epochs):
         metrics = collections.defaultdict(float)
 
@@ -187,7 +185,7 @@ def adv_autoencoder_loop(
     features_key="raw_features"
 ):
     if len(devices) > 1:
-        logger.info("Duplicating model on {} gpus.".format(len(devices)))
+        print("Duplicating model on {} gpus.".format(len(devices)))
         training_network = nn.DataParallel(network, devices)
     else:
         training_network = network
@@ -419,7 +417,7 @@ def _extract_features(
     visual_features = collections.defaultdict(list)
     visual_targets = collections.defaultdict(list)
 
-    logger.info("Computing class features...")
+    print("Computing class features...")
     prog_bar = tqdm(
         class_ids, ascii=True, bar_format="{bar} | {percentage:3.0f}%", disable=disable_progressbar
     )

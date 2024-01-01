@@ -12,7 +12,7 @@ sys.dont_write_bytecode = True
 def main(rank, config):
     begin = time.time()
     trainer = Trainer(rank, config)
-    # print(config)
+    print(config)
     for _ in trainer.train_loop(config): # `train` is a generator in order to be used with hyperfind.
         pass
 

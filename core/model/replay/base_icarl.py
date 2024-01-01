@@ -17,8 +17,6 @@ from core.model.replay.base import IncrementalLearner
 
 EPSILON = 1e-8
 
-logger = logging.getLogger(__name__)
-
 
 class ICarl(IncrementalLearner):
     """Implementation of iCarl.
@@ -129,7 +127,7 @@ class ICarl(IncrementalLearner):
     def save_metadata(self, directory, run_id):
         path = os.path.join(directory, f"meta_{run_id}_task_{self._task}.pkl")
 
-        logger.info("Saving metadata at {}.".format(path))
+        print("Saving metadata at {}.".format(path))
         with open(path, "wb+") as f:
             pickle.dump(
                 [self._data_memory, self._targets_memory, self._herding_indexes, self._class_means],
@@ -141,7 +139,7 @@ class ICarl(IncrementalLearner):
         if not os.path.exists(path):
             return
 
-        logger.info("Loading metadata at {}.".format(path))
+        print("Loading metadata at {}.".format(path))
         with open(path, "rb") as f:
             self._data_memory, self._targets_memory, self._herding_indexes, self._class_means = pickle.load(
                 f
@@ -158,7 +156,7 @@ class ICarl(IncrementalLearner):
     def _before_task(self, train_loader, val_loader):
         self._n_classes += self._task_size
         self._network.add_classes(self._task_size)
-        logger.info("Now {} examplars per class.".format(self._memory_per_class))
+        print("Now {} examplars per class.".format(self._memory_per_class))
 
         self._optimizer = factory.get_optimizer(
             self._network.parameters(), self._opt_name, self._lr, self._weight_decay
@@ -172,7 +170,7 @@ class ICarl(IncrementalLearner):
             if self._warmup_config.get("only_first_step", True) and self._task != 0:
                 pass
             else:
-                logger.info("Using WarmUp")
+                print("Using WarmUp")
                 self._scheduler = schedulers.GradualWarmupScheduler(
                     optimizer=self._optimizer,
                     after_scheduler=base_scheduler,
@@ -182,7 +180,7 @@ class ICarl(IncrementalLearner):
             self._scheduler = base_scheduler
 
     def _train_task(self, train_loader, val_loader):
-        logger.debug("nb {}.".format(len(train_loader.dataset)))
+        print("nb {}.".format(len(train_loader.dataset)))
         self._training_step(train_loader, val_loader, 0, self._n_epochs)
 
     def _training_step(
@@ -193,7 +191,7 @@ class ICarl(IncrementalLearner):
 
         grad, act = None, None
         if len(self._multiple_devices) > 1:
-            logger.info("Duplicating model on {} gpus.".format(len(self._multiple_devices)))
+            print("Duplicating model on {} gpus.".format(len(self._multiple_devices)))
             training_network = nn.DataParallel(self._network, self._multiple_devices)
             if self._network.gradcam_hook:
                 grad, act, back_hook, for_hook = hook.get_gradcam_hook(training_network)
@@ -209,7 +207,7 @@ class ICarl(IncrementalLearner):
 
             if epoch == nb_epochs - 1 and record_bn and len(self._multiple_devices) == 1 and \
                hasattr(training_network.convnet, "record_mode"):
-                logger.info("Recording BN means & vars for MCBN...")
+                print("Recording BN means & vars for MCBN...")
                 training_network.convnet.clear_records()
                 training_network.convnet.record_mode()
 
@@ -244,6 +242,16 @@ class ICarl(IncrementalLearner):
 
                 self._print_metrics(prog_bar, epoch, nb_epochs, i)
 
+            pretty_metrics = ", ".join(
+                "{}: {}".format(metric_name, metric_value)
+                for metric_name, metric_value in self._metrics.items()
+            )
+            # print(cur_loss)
+
+            #  \tAverage Acc: {:.3f}
+            print("Train [{}/{}] | Epoch [{}/{}] |\t{} ".format(self._task + 1, self._n_tasks, epoch+1, nb_epochs, pretty_metrics))
+            # print(self._eval_every_x_epochs, self._eval_every_x_epochs)
+
             if self._scheduler:
                 self._scheduler.step(epoch)
 
@@ -254,7 +262,7 @@ class ICarl(IncrementalLearner):
                 )
                 ytrue, ypred = self._eval_task(val_loader)
                 acc = 100 * round((ypred == ytrue).sum() / len(ytrue), 3)
-                logger.info("Val accuracy: {}".format(acc))
+                print("Val accuracy: {}".format(acc))
                 self._network.train()
 
                 if acc > best_acc:
@@ -265,11 +273,11 @@ class ICarl(IncrementalLearner):
                     wait += 1
 
                 if self._early_stopping and self._early_stopping["patience"] > wait:
-                    logger.warning("Early stopping!")
+                    print("Early stopping!")
                     break
 
         if self._eval_every_x_epochs:
-            logger.info("Best accuracy reached at epoch {} with {}%.".format(best_epoch, best_acc))
+            print("Best accuracy reached at epoch {} with {}%.".format(best_epoch, best_acc))
 
         if len(self._multiple_devices) == 1 and hasattr(training_network.convnet, "record_mode"):
             training_network.convnet.normal_mode()
@@ -280,6 +288,9 @@ class ICarl(IncrementalLearner):
             for metric_name, metric_value in self._metrics.items()
         )
 
+        # print("T{}/{}, E{}/{} => {}".format(
+        #         self._task + 1, self._n_tasks, epoch + 1, nb_epochs, pretty_metrics
+        #     ))
         prog_bar.set_description(
             "T{}/{}, E{}/{} => {}".format(
                 self._task + 1, self._n_tasks, epoch + 1, nb_epochs, pretty_metrics
@@ -391,7 +402,7 @@ class ICarl(IncrementalLearner):
     def build_examplars(
         self, inc_dataset, herding_indexes, memory_per_class=None, data_source="train"
     ):
-        logger.info("Building & updating memory.")
+        print("Building & updating memory.")
         memory_per_class = memory_per_class or self._memory_per_class
         herding_indexes = copy.deepcopy(herding_indexes)
 

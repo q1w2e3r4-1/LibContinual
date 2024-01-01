@@ -37,13 +37,13 @@ class Word2vec(nn.Module):
 
         self.emb, _ = get_embeddings(dataset, embeddings, frozen=freeze_embedding, path=data_path)
         if isinstance(scale_embedding, list):
-            logger.info(f"Scaling semantic embedding in {scale_embedding}.")
+            print(f"Scaling semantic embedding in {scale_embedding}.")
             self.emb.weight.data = Scaler(scale_embedding).fit_transform(self.emb.weight.data)
         elif isinstance(scale_embedding, str) and scale_embedding == "l2":
             self.emb.weight.data = F.normalize(self.emb.weight.data, dim=-1, p=2)
 
         semantic_dim = self.emb.weight.shape[1]
-        logger.info(f"Semantic dimension: {semantic_dim}.")
+        print(f"Semantic dimension: {semantic_dim}.")
 
         if mlp_dims is not None:
             self.mlp = MLP(

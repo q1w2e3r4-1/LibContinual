@@ -1,5 +1,4 @@
 import datetime
-import logging
 import os
 import warnings
 
@@ -10,8 +9,6 @@ import torch
 from sklearn import manifold
 from sklearn.cluster import KMeans
 from sklearn.neighbors import KNeighborsClassifier
-
-logger = logging.getLogger(__name__)
 
 
 def to_onehot(targets, n_classes):
@@ -124,14 +121,14 @@ def add_new_weights(network, weight_generation, current_nb_classes, task_size, i
         weight_generation = {"type": weight_generation}
 
     if weight_generation["type"] == "imprinted":
-        logger.info("Generating imprinted weights")
+        print("Generating imprinted weights")
 
         network.add_imprinted_classes(
             list(range(current_nb_classes, current_nb_classes + task_size)), inc_dataset,
             **weight_generation
         )
     elif weight_generation["type"] == "embedding":
-        logger.info("Generating embedding weights")
+        print("Generating embedding weights")
 
         mean_embeddings = []
         for class_index in range(current_nb_classes, current_nb_classes + task_size):
@@ -175,7 +172,7 @@ def add_new_weights(network, weight_generation, current_nb_classes, task_size, i
 
 
 def apply_kmeans(features, targets, nb_clusters, pre_normalization):
-    logger.info(
+    print(
         "Kmeans on {} samples (pre-normalized: {}) with {} clusters per class".format(
             len(features), pre_normalization, nb_clusters
         )
@@ -209,7 +206,7 @@ def apply_knn(
     normalize=True,
     weights="uniform"
 ):
-    logger.info(
+    print(
         "KNN with {} neighbors and pre-normalized features: {}, weights: {}.".format(
             nb_neighbors, normalize, weights
         )

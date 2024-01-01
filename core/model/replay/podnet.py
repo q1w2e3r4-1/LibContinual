@@ -1,5 +1,4 @@
 import copy
-import logging
 import math
 
 import numpy as np
@@ -9,9 +8,6 @@ from torch.nn import functional as F
 from core.lib import data, factory, losses, network, utils
 from core.lib.data import samplers
 from core.model.replay.base_icarl import ICarl
-
-logger = logging.getLogger(__name__)
-
 
 class PODNet(ICarl):
     """Pooled Output Distillation Network.
@@ -110,17 +106,17 @@ class PODNet(ICarl):
 
     def _train_task(self, train_loader, val_loader):
         if self._meta_transfer:
-            logger.info("Setting task meta-transfer")
+            print("Setting task meta-transfer")
             self.set_meta_transfer()
 
         for p in self._network.parameters():
             if p.requires_grad:
                 p.register_hook(lambda grad: torch.clamp(grad, -5., 5.))
 
-        logger.debug("nb {}.".format(len(train_loader.dataset)))
+        print("nb {}.".format(len(train_loader.dataset)))
 
         if self._meta_transfer.get("clip"):
-            logger.info(f"Clipping MTL weights ({self._meta_transfer.get('clip')}).")
+            print(f"Clipping MTL weights ({self._meta_transfer.get('clip')}).")
             clipper = BoundClipper(*self._meta_transfer.get("clip"))
         else:
             clipper = None
@@ -131,9 +127,9 @@ class PODNet(ICarl):
         self._post_processing_type = None
 
         if self._finetuning_config and self._task != 0:
-            logger.info("Fine-tuning")
+            print("Fine-tuning")
             if self._finetuning_config["scaling"]:
-                logger.info(
+                print(
                     "Custom fine-tuning scaling of {}.".format(self._finetuning_config["scaling"])
                 )
                 self._post_processing_type = self._finetuning_config["scaling"]
@@ -247,11 +243,11 @@ class PODNet(ICarl):
     def _before_task(self, train_loader, val_loader):
         self._gen_weights()
         self._n_classes += self._task_size
-        logger.info("Now {} examplars per class.".format(self._memory_per_class))
+        print("Now {} examplars per class.".format(self._memory_per_class))
 
         if self._groupwise_factors and isinstance(self._groupwise_factors, dict):
             if self._groupwise_factors_bis and self._task > 0:
-                logger.info("Using second set of groupwise lr.")
+                print("Using second set of groupwise lr.")
                 groupwise_factor = self._groupwise_factors_bis
             else:
                 groupwise_factor = self._groupwise_factors

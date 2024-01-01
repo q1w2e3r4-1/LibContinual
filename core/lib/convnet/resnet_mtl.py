@@ -203,37 +203,37 @@ class ResNet(nn.Module):
         return x
 
     def apply_mtl(self, b):
-        logger.info(f"Apply mtl: {b}.")
+        print(f"Apply mtl: {b}.")
         for m in self.modules():
             if isinstance(m, Conv2dMtl):
                 m.apply_mtl = b
 
     def apply_mtl_bias(self, b):
-        logger.info(f"Apply mtl bias: {b}.")
+        print(f"Apply mtl bias: {b}.")
         for m in self.modules():
             if isinstance(m, Conv2dMtl):
                 m.apply_mtl_bias = b
 
     def apply_bias_on_weights(self, b):
-        logger.info(f"Apply mtl bias on weights: {b}.")
+        print(f"Apply mtl bias on weights: {b}.")
         for m in self.modules():
             if isinstance(m, Conv2dMtl):
                 m.apply_bias_on_weights = b
 
     def fuse_mtl_weights(self):
-        logger.info("Fuse mtl weights.")
+        print("Fuse mtl weights.")
         for m in self.modules():
             if isinstance(m, Conv2dMtl):
                 m.fuse_mtl_weights()
 
     def reset_mtl_parameters(self):
-        logger.info("Reset mtl weights.")
+        print("Reset mtl weights.")
         for m in self.modules():
             if isinstance(m, Conv2dMtl):
                 m.reset_mtl_parameters()
 
     def freeze_convnet(self, freeze, bn_weights=False, bn_stats=False):
-        logger.info(f"Freeze convnet: {freeze}.")
+        print(f"Freeze convnet: {freeze}.")
         for m in self.modules():
             if isinstance(m, Conv2dMtl):
                 m.freeze_convnet(freeze)

@@ -113,13 +113,13 @@ class IncrementalDataset:
             self.data_val, self.targets_val, low_range=min_class, high_range=max_class
         )
         if self._all_test_classes is True:
-            logger.info("Testing on all classes!")
+            print("Testing on all classes!")
             x_test, y_test = self._select(
                 self.data_test, self.targets_test, high_range=sum(self.increments)
             )
         elif self._all_test_classes is not None or self._all_test_classes is not False:
             max_class = sum(self.increments[:self._current_task + 1 + self._all_test_classes])
-            logger.info(
+            print(
                 f"Testing on {self._all_test_classes} unseen tasks (max class = {max_class})."
             )
             x_test, y_test = self._select(self.data_test, self.targets_test, high_range=max_class)
@@ -135,12 +135,12 @@ class IncrementalDataset:
             y_train = to_onehot(y_train)
 
         if memory is not None:
-            logger.info("Set memory of size: {}.".format(memory[0].shape[0]))
+            print("Set memory of size: {}.".format(memory[0].shape[0]))
             x_train, y_train, train_memory_flags = self._add_memory(x_train, y_train, *memory)
         else:
             train_memory_flags = np.zeros((x_train.shape[0],))
         if memory_val is not None:
-            logger.info("Set validation memory of size: {}.".format(memory_val[0].shape[0]))
+            print("Set validation memory of size: {}.".format(memory_val[0].shape[0]))
             x_val, y_val, val_memory_flags = self._add_memory(x_val, y_val, *memory_val)
         else:
             val_memory_flags = np.zeros((x_val.shape[0],))
@@ -258,7 +258,7 @@ class IncrementalDataset:
 
         sampler = sampler or self._sampler
         if sampler is not None and mode == "train":
-            logger.info("Using sampler {}".format(sampler))
+            print("Using sampler {}".format(sampler))
             sampler = sampler(y, memory_flags, batch_size=self._batch_size, **self._sampler_config)
             batch_size = 1
         else:
@@ -313,7 +313,7 @@ class IncrementalDataset:
             elif train_dataset.class_order is not None:
                 order = train_dataset.class_order
 
-            logger.info("Dataset {}: class ordering: {}.".format(dataset.__name__, order))
+            print("Dataset {}: class ordering: {}.".format(dataset.__name__, order))
 
             self.class_order.append(order)
 
@@ -333,7 +333,7 @@ class IncrementalDataset:
                 remainder = len(order) - int(nb_steps) * increment
 
                 if not nb_steps.is_integer():
-                    logger.warning(
+                    print(
                         f"THe last step will have sligthly less sample ({remainder} vs {increment})."
                     )
                     self.increments = [increment for _ in range(int(nb_steps))]
@@ -346,7 +346,7 @@ class IncrementalDataset:
                 nb_steps = (len(order) - initial_increment) / increment
                 remainder = (len(order) - initial_increment) - int(nb_steps) * increment
                 if not nb_steps.is_integer():
-                    logger.warning(
+                    print(
                         f"THe last step will have sligthly less sample ({remainder} vs {increment})."
                     )
                     self.increments.extend([increment for _ in range(int(nb_steps))])

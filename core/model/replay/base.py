@@ -1,12 +1,7 @@
 import abc
-import logging
 import os
 
 import torch
-
-LOGGER = logging.Logger("IncLearn", level="INFO")
-
-logger = logging.getLogger(__name__)
 
 
 class IncrementalLearner(abc.ABC):
@@ -33,27 +28,27 @@ class IncrementalLearner(abc.ABC):
         self._n_tasks = task_info["max_task"]
 
     def before_task(self, train_loader, val_loader):
-        LOGGER.info("Before task")
+        print("Before task")
         self.eval()
         self._before_task(train_loader, val_loader)
 
     def train_task(self, train_loader, val_loader):
-        LOGGER.info("train task")
+        print("train task")
         self.train()
         self._train_task(train_loader, val_loader)
 
     def after_task_intensive(self, inc_dataset):
-        LOGGER.info("after task")
+        print("after task")
         self.eval()
         self._after_task_intensive(inc_dataset)
 
     def after_task(self, inc_dataset):
-        LOGGER.info("after task")
+        print("after task")
         self.eval()
         self._after_task(inc_dataset)
 
     def eval_task(self, data_loader):
-        LOGGER.info("eval task")
+        print("eval task")
         self.eval()
         return self._eval_task(data_loader)
 
@@ -102,7 +97,7 @@ class IncrementalLearner(abc.ABC):
 
     def save_parameters(self, directory, run_id):
         path = os.path.join(directory, f"net_{run_id}_task_{self._task}.pth")
-        logger.info(f"Saving model at {path}.")
+        print(f"Saving model at {path}.")
         torch.save(self.network.state_dict(), path)
 
     def load_parameters(self, directory, run_id):
@@ -110,11 +105,11 @@ class IncrementalLearner(abc.ABC):
         if not os.path.exists(path):
             return
 
-        logger.info(f"Loading model at {path}.")
+        print(f"Loading model at {path}.")
         try:
             self.network.load_state_dict(torch.load(path))
         except Exception:
-            logger.warning("Old method to save weights, it's deprecated!")
+            print("Old method to save weights, it's deprecated!")
             self._network = torch.load(path)
 
     def eval(self):

@@ -12,7 +12,7 @@ from torch.nn import init
 
 from core.lib import pooling
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 
 class DownsampleStride(nn.Module):
@@ -242,7 +242,7 @@ class CifarResNet(nn.Module):
             raise ValueError("Unused kwargs: {}.".format(kwargs))
 
         self.all_attentions = all_attentions
-        logger.info("Downsampling type {}".format(downsampling))
+        print("Downsampling type {}".format(downsampling))
         self._downsampling_type = downsampling
         self.last_relu = last_relu
 

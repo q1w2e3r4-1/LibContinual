@@ -6,7 +6,7 @@ from torch import nn
 from .mlp import MLP
 from .word import get_embeddings
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 
 class AdvAutoEncoder(nn.Module):
@@ -29,7 +29,7 @@ class AdvAutoEncoder(nn.Module):
 
         self.emb, _ = get_embeddings(dataset, embeddings, True)
         semantic_dim = self.emb.weight.shape[1]
-        logger.info(f"Semantic dimension: {semantic_dim}.")
+        print(f"Semantic dimension: {semantic_dim}.")
 
         if encoder_config is None:
             self.encoder = identity

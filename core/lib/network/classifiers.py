@@ -169,7 +169,7 @@ class Classifier(nn.Module):
         :param ponderate: Reponderate the negative weights by the existing weights norm, as done by
                           "Weights Imprinting".
         """
-        logger.info("Add negative weights.")
+        print("Add negative weights.")
         if isinstance(ponderate, str):
             if ponderate == "weights_imprinting":
                 avg_weights_norm = self.weights.data.norm(dim=1).mean()
@@ -241,7 +241,7 @@ class CosineClassifier(nn.Module):
             self.scaling = FactorScalar(1.)
 
         if proxy_per_class > 1:
-            logger.info("Using {} proxies per class.".format(proxy_per_class))
+            print("Using {} proxies per class.".format(proxy_per_class))
 
         if pre_fc is not None:
             self.pre_fc = nn.Sequential(
@@ -456,7 +456,7 @@ class CosineClassifier(nn.Module):
         self, class_indexes, inc_dataset, network, multi_class_diff="normal", type=None
     ):
         if self.proxy_per_class > 1:
-            logger.info("Multi class diff {}.".format(multi_class_diff))
+            print("Multi class diff {}.".format(multi_class_diff))
 
         weights_norm = self.weights.data.norm(dim=1, keepdim=True)
         avg_weights_norm = torch.mean(weights_norm, dim=0).cpu()
@@ -505,7 +505,7 @@ class CosineClassifier(nn.Module):
         :param ponderate: Reponderate the negative weights by the existing weights norm, as done by
                           "Weights Imprinting".
         """
-        logger.info("Add negative weights.")
+        print("Add negative weights.")
         if isinstance(ponderate, str):
             if ponderate == "weights_imprinting":
                 avg_weights_norm = self.weights.data.norm(dim=1).mean()

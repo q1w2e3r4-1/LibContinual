@@ -43,7 +43,7 @@ class Trainer(object):
             args["label"] = autolabel
 
         if args["label"]:
-            self.logger.info("Label: {}".format(args["label"]))
+            print("Label: {}".format(args["label"]))
             try:
                 os.system("echo '\ek{}\e\\'".format(args["label"]))
             except:
@@ -68,8 +68,6 @@ class Trainer(object):
             assert all([isinstance(c, int) for o in self.orders for c in o])
         else:
             self.orders = [None for _ in range(len(self.seed_list))]
-
-        self.avg_inc_accs, self.last_accs, self.forgettings = [], [], []
         # self.rank = rank
         # self.config = config
         # self.config['rank'] = rank
@@ -266,37 +264,37 @@ class Trainer(object):
 
         avg_inc_accs, last_accs, forgettings = [], [], []
         for i, seed in enumerate(self.seed_list):
-            self.logger.warning("Launching run {}/{}".format(i + 1, len(self.seed_list)))
+            print("Launching run {}/{}".format(i + 1, len(self.seed_list)))
             args["seed"] = seed
             args["device"] = self.device
 
             # start_time = time.time()
 
-            for avg_inc_acc, last_acc, forgetting in self._train_task(args, self.start_date, self.orders[i], i):
+            for avg_inc_acc, last_acc, forgetting in self._start_train(args, self.start_date, self.orders[i], i):
                 yield avg_inc_acc, last_acc, forgetting, False
 
             avg_inc_accs.append(avg_inc_acc)
             last_accs.append(last_acc)
             forgettings.append(forgetting)
 
-            # self.logger.info("Training finished in {}s.".format(int(time.time() - start_time)))
+            # print("Training finished in {}s.".format(int(time.time() - start_time)))
             yield avg_inc_acc, last_acc, forgetting, True
 
-        self.logger.info("Label was: {}".format(args["label"]))
+        print("Label was: {}".format(args["label"]))
 
-        self.logger.info(
+        print(
             "Results done on {} seeds: avg: {}, last: {}, forgetting: {}".format(
                 len(self.seed_list), _aggregate_results(avg_inc_accs), _aggregate_results(last_accs),
                 _aggregate_results(forgettings)
             )
         )
-        self.logger.info("Individual results avg: {}".format([round(100 * acc, 2) for acc in avg_inc_accs]))
-        self.logger.info("Individual results last: {}".format([round(100 * acc, 2) for acc in last_accs]))
-        self.logger.info(
+        print("Individual results avg: {}".format([round(100 * acc, 2) for acc in avg_inc_accs]))
+        print("Individual results last: {}".format([round(100 * acc, 2) for acc in last_accs]))
+        print(
             "Individual results forget: {}".format([round(100 * acc, 2) for acc in forgettings])
         )
 
-        self.logger.info(f"Command was {' '.join(sys.argv)}")
+        print(f"Command was {' '.join(sys.argv)}")
         # experiment_begin = time()
         # for task_idx in range(self.task_num):
         #     print("================Task {} Start!================".format(task_idx))
@@ -361,9 +359,9 @@ class Trainer(object):
         #     elif self.buffer.strategy == 'random':
         #         random_update(self.train_loader.get_loader(task_idx).dataset, self.buffer)
 
-    def _train_task(self, args, start_date, class_order, run_id):
+    def _start_train(self, args, start_date, class_order, run_id):
         # set global params
-        _set_seed(args["seed"], args["threads"], args["no_benchmark"], args["detect_anomaly"])
+        self._set_seed(args["seed"], args["threads"], args["no_benchmark"], args["detect_anomaly"])
         factory.set_device(args)
 
         inc_dataset, model = _set_data_model(args, class_order)
@@ -376,6 +374,7 @@ class Trainer(object):
         )
 
         for task_id in range(inc_dataset.n_tasks):
+            print("================Task {} Start!================".format(task_id))
             task_info, train_loader, val_loader, test_loader = inc_dataset.new_task(memory, memory_val)
             if task_info["task"] == args["max_task"]:
                 break
@@ -388,21 +387,24 @@ class Trainer(object):
             model.eval()
             model.before_task(train_loader, val_loader if val_loader else test_loader)
 
+            print("================Task {} Training!================".format(task_id))
+            print("The training samples number: {}".format(len(train_loader.dataset)))
+
             # -------------
             # 2. Train Task
             # -------------
-            _train_task(args, model, train_loader, val_loader, test_loader, run_id, task_id, task_info)
+            self._train_task(args, model, train_loader, val_loader, test_loader, run_id, task_id, task_info)
 
             # ----------------
             # 3. Conclude Task
             # ----------------
             model.eval()
-            _after_task(args, model, inc_dataset, run_id, task_id, results_folder)
+            self._after_task(args, model, inc_dataset, run_id, task_id, results_folder)
 
             # ------------
             # 4. Eval Task
             # ------------
-            self.logger.info("Eval on {}->{}.".format(0, task_info["max_class"]))
+            print("Eval on {}->{}.".format(0, task_info["max_class"]))
             ypreds, ytrue = model.eval_task(test_loader)
             metric_logger.log_task(
                 ypreds, ytrue, task_size=task_info["increment"], zeroshot=args.get("all_test_classes")
@@ -421,33 +423,33 @@ class Trainer(object):
                     pickle.dump((ypreds, ytrue), f)
 
             if args["label"]:
-                self.logger.info(args["label"])
-            self.logger.info("Avg inc acc: {}.".format(metric_logger.last_results["incremental_accuracy"]))
-            self.logger.info("Current acc: {}.".format(metric_logger.last_results["accuracy"]))
-            self.logger.info(
+                print(args["label"])
+            print("Avg inc acc: {}.".format(metric_logger.last_results["incremental_accuracy"]))
+            print("Current acc: {}.".format(metric_logger.last_results["accuracy"]))
+            print(
                 "Avg inc acc top5: {}.".format(metric_logger.last_results["incremental_accuracy_top5"])
             )
-            self.logger.info("Current acc top5: {}.".format(metric_logger.last_results["accuracy_top5"]))
-            self.logger.info("Forgetting: {}.".format(metric_logger.last_results["forgetting"]))
-            self.logger.info("Cord metric: {:.2f}.".format(metric_logger.last_results["cord"]))
+            print("Current acc top5: {}.".format(metric_logger.last_results["accuracy_top5"]))
+            print("Forgetting: {}.".format(metric_logger.last_results["forgetting"]))
+            print("Cord metric: {:.2f}.".format(metric_logger.last_results["cord"]))
             if task_id > 0:
-                self.logger.info(
+                print(
                     "Old accuracy: {:.2f}, mean: {:.2f}.".format(
                         metric_logger.last_results["old_accuracy"],
                         metric_logger.last_results["avg_old_accuracy"]
                     )
                 )
-                self.logger.info(
+                print(
                     "New accuracy: {:.2f}, mean: {:.2f}.".format(
                         metric_logger.last_results["new_accuracy"],
                         metric_logger.last_results["avg_new_accuracy"]
                     )
                 )
             if args.get("all_test_classes"):
-                self.logger.info(
+                print(
                     "Seen classes: {:.2f}.".format(metric_logger.last_results["seen_classes_accuracy"])
                 )
-                self.logger.info(
+                print(
                     "unSeen classes: {:.2f}.".format(
                         metric_logger.last_results["unseen_classes_accuracy"]
                     )
@@ -463,7 +465,7 @@ class Trainer(object):
             memory = model.get_memory()
             memory_val = model.get_val_memory()
 
-        self.logger.info(
+        print(
             "Average Incremental Accuracy: {}.".format(results["results"][-1]["incremental_accuracy"])
         )
         if args["label"] is not None:
@@ -521,6 +523,59 @@ class Trainer(object):
 
         return {"avg_acc": np.mean(per_task_acc), "per_task_acc": per_task_acc}
 
+    def _set_seed(self, seed, nb_threads, no_benchmark, detect_anomaly):
+        print("Set seed {}".format(seed))
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+        if no_benchmark:
+            print("CUDA algos are not determinists but faster!")
+        else:
+            print("CUDA algos are determinists but very slow!")
+        torch.backends.cudnn.deterministic = not no_benchmark  # This will slow down training.
+        torch.set_num_threads(nb_threads)
+        if detect_anomaly:
+            print("Will detect autograd anomaly.")
+            torch.autograd.set_detect_anomaly(detect_anomaly)
+
+    def _train_task(self, config, model, train_loader, val_loader, test_loader, run_id, task_id, task_info):
+        if config["resume"] is not None and os.path.isdir(config["resume"]) \
+                and ((config["resume_first"] and task_id == 0) or not config["resume_first"]):
+            model.load_parameters(config["resume"], run_id)
+            print(
+                "Skipping training phase {} because reloading pretrained model.".format(task_id)
+            )
+        elif config["resume"] is not None and os.path.isfile(config["resume"]) and \
+                os.path.exists(config["resume"]) and task_id == 0:
+            # In case we resume from a single model file, it's assumed to be from the first task.
+            model.network = config["resume"]
+            print(
+                "Skipping initial training phase {} because reloading pretrained model.".
+                    format(task_id)
+            )
+        else:
+            print("Train on {}->{}.".format(task_info["min_class"], task_info["max_class"]))
+            model.train()
+            model.train_task(train_loader, val_loader if val_loader else test_loader)
+
+    def _after_task(self, config, model, inc_dataset, run_id, task_id, results_folder):
+        if config["resume"] and os.path.isdir(config["resume"]) and not config["recompute_meta"] \
+                and ((config["resume_first"] and task_id == 0) or not config["resume_first"]):
+            model.load_metadata(config["resume"], run_id)
+        else:
+            model.after_task_intensive(inc_dataset)
+
+        model.after_task(inc_dataset)
+
+        if config["label"] and (
+                config["save_model"] == "task" or
+                (config["save_model"] == "last" and task_id == inc_dataset.n_tasks - 1) or
+                (config["save_model"] == "first" and task_id == 0)
+        ):
+            model.save_parameters(results_folder, run_id)
+            model.save_metadata(results_folder, run_id)
+
 
 def _set_up_options(args):
     options_paths = args["options"] or []
@@ -553,22 +608,6 @@ def _aggregate_results(list_results):
         res = res + " +/- " + str(round(statistics.stdev(list_results) * 100, 2))
     return res
 
-def _set_seed(seed, nb_threads, no_benchmark, detect_anomaly):
-    self.logger.info("Set seed {}".format(seed))
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    if no_benchmark:
-        self.logger.warning("CUDA algos are not determinists but faster!")
-    else:
-        self.logger.warning("CUDA algos are determinists but very slow!")
-    torch.backends.cudnn.deterministic = not no_benchmark  # This will slow down training.
-    torch.set_num_threads(nb_threads)
-    if detect_anomaly:
-        self.logger.info("Will detect autograd anomaly.")
-        torch.autograd.set_detect_anomaly(detect_anomaly)
-
 
 def _set_data_model(config, class_order):
     inc_dataset = factory.get_data(config, class_order)
@@ -586,46 +625,8 @@ def _set_results(config, start_date):
         results_folder = None
 
     if config["save_model"]:
-        self.logger.info("Model will be save at this rythm: {}.".format(config["save_model"]))
+        print("Model will be save at this rythm: {}.".format(config["save_model"]))
 
     results = results_utils.get_template_results(config)
 
     return results, results_folder
-
-def _train_task(config, model, train_loader, val_loader, test_loader, run_id, task_id, task_info):
-    if config["resume"] is not None and os.path.isdir(config["resume"]) \
-       and ((config["resume_first"] and task_id == 0) or not config["resume_first"]):
-        model.load_parameters(config["resume"], run_id)
-        self.logger.info(
-            "Skipping training phase {} because reloading pretrained model.".format(task_id)
-        )
-    elif config["resume"] is not None and os.path.isfile(config["resume"]) and \
-            os.path.exists(config["resume"]) and task_id == 0:
-        # In case we resume from a single model file, it's assumed to be from the first task.
-        model.network = config["resume"]
-        self.logger.info(
-            "Skipping initial training phase {} because reloading pretrained model.".
-            format(task_id)
-        )
-    else:
-        self.logger.info("Train on {}->{}.".format(task_info["min_class"], task_info["max_class"]))
-        model.train()
-        model.train_task(train_loader, val_loader if val_loader else test_loader)
-
-
-def _after_task(config, model, inc_dataset, run_id, task_id, results_folder):
-    if config["resume"] and os.path.isdir(config["resume"]) and not config["recompute_meta"] \
-       and ((config["resume_first"] and task_id == 0) or not config["resume_first"]):
-        model.load_metadata(config["resume"], run_id)
-    else:
-        model.after_task_intensive(inc_dataset)
-
-    model.after_task(inc_dataset)
-
-    if config["label"] and (
-        config["save_model"] == "task" or
-        (config["save_model"] == "last" and task_id == inc_dataset.n_tasks - 1) or
-        (config["save_model"] == "first" and task_id == 0)
-    ):
-        model.save_parameters(results_folder, run_id)
-        model.save_metadata(results_folder, run_id)
