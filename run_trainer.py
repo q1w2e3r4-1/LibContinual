@@ -4,14 +4,18 @@ from core.config import Config
 from core import Trainer
 import time
 from core.utils import parser
+from train import train
 
 sys.dont_write_bytecode = True
 
 
 def main(rank, config):
     begin = time.time()
-    trainer = Trainer(rank, config)
-    trainer.train_loop()
+    for _ in train(config):  # `train` is a generator in order to be used with hyperfind.
+        pass
+    # print(1)
+    # trainer = Trainer(rank, config)
+    # trainer.train_loop()
     print("Time cost : ", time.time() - begin)
 
 
@@ -34,17 +38,21 @@ def get_default_config():
 
 
 if __name__ == "__main__":
-    default = get_default_config()
-    # config = Config("./config/finetune.yaml").get_config_dict()
-    # config = Config("./config/lwf.yaml").get_config_dict()
-    # config = Config("./config/lwf.yaml").get_config_dict()
-    config = Config("./config/podnet_cnn_cifar100.yaml").get_config_dict()
-    #
-    config = dict(default, **config) # 用yaml的参数覆盖默认参数
-    print(config)
-    if config["n_gpu"] > 1:
-        pass
-        os.environ["CUDA_VISIBLE_DEVICES"] = config["device_ids"]
-        # torch.multiprocessing.spawn(main, nprocs=config["n_gpu"], args=(config,))
-    else:
-        main(0, config)
+    config = parser.get_parser().parse_args()
+    config = vars(config)  # Converting argparse Namespace to a dict.
+
+    main(0, config)
+    # default = get_default_config()
+    # # config = Config("./config/finetune.yaml").get_config_dict()
+    # # config = Config("./config/lwf.yaml").get_config_dict()
+    # # config = Config("./config/lwf.yaml").get_config_dict()
+    # config = Config("./config/podnet_cnn_cifar100.yaml").get_config_dict()
+    # #
+    # config = dict(default, **config) # 用yaml的参数覆盖默认参数
+    # print(config)
+    # if config["n_gpu"] > 1:
+    #     pass
+    #     os.environ["CUDA_VISIBLE_DEVICES"] = config["device_ids"]
+    #     # torch.multiprocessing.spawn(main, nprocs=config["n_gpu"], args=(config,))
+    # else:
+    #     main(0, config)

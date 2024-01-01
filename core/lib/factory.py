@@ -3,7 +3,7 @@ import warnings
 import torch
 from torch import optim
 
-from core import model
+from core.model import replay
 from core.lib.convnet import (
     densenet, my_resnet, my_resnet2, my_resnet_brn, my_resnet_mcbn, my_resnet_mtl, resnet,
     resnet_mtl, ucir_resnet, vgg
@@ -66,7 +66,7 @@ def get_model(args):
         # "oracle": None,
         # "bic": models.BiC,
         # "ucir": models.UCIR,
-        # "podnet": model.PODNet,
+        "podnet": replay.PODNet,
         # "lwm": models.LwM,
         # "zil": models.ZIL,
         # "gdumb": models.GDumb

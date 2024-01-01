@@ -21,43 +21,43 @@ val_per_epoch: 10
 
 batch_size: 128
 
-optimizer:
-  name: SGD
-  kwargs:
-    lr: 0.1
+#optimizer:
+#  name: SGD
+#  kwargs:
+#    lr: 0.1
 
-lr_scheduler:
-  name: StepLR
-  kwargs:
-    gamma: 0.5
-    step_size: 30
-
-backbone:
-  name: resnet18
-  kwargs:
-    num_classes: 100
-    args:
-      dataset: cifar100
-
-
-buffer:
-  name: LinearBuffer
-  kwargs:
-    buffer_size: 0
-    batch_size: 32
-    strategy: random     # random, equal_random, reservoir, herding
-
-classifier:
-  name: PODNet
-  kwargs:
-    num_class: 100
-    feat_dim: 512
-    init_cls_num: 10
-    inc_cls_num: 10
-    dist: 0.5
-    lamda: 10
-    K: 2
-    lw_mr: 1
+#lr_scheduler:
+#  name: StepLR
+#  kwargs:
+#    gamma: 0.5
+#    step_size: 30
+#
+#backbone:
+#  name: resnet18
+#  kwargs:
+#    num_classes: 100
+#    args:
+#      dataset: cifar100
+#
+#
+#buffer:
+#  name: LinearBuffer
+#  kwargs:
+#    buffer_size: 0
+#    batch_size: 32
+#    strategy: random     # random, equal_random, reservoir, herding
+#
+#classifier:
+#  name: PODNet
+#  kwargs:
+#    num_class: 100
+#    feat_dim: 512
+#    init_cls_num: 10
+#    inc_cls_num: 10
+#    dist: 0.5
+#    lamda: 10
+#    K: 2
+#    lw_mr: 1
 
 dataset: cifar100
 
@@ -104,10 +104,10 @@ finetuning_config:
 scheduling: cosine
 
 # Misc
-epochs: 160
+epochs: 20
 lr: 0.1
 lr_decay: 0.1
-#optimizer: sgd
+optimizer: sgd
 proxy_per_class: 1
 weight_decay: 0.0005
 
