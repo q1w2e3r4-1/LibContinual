@@ -25,8 +25,6 @@ from core.lib import factory
 from core.lib import logger as logger_lib
 from core.lib import metrics, results_utils, utils
 
-logger = logging.getLogger(__name__)
-
 class Trainer(object):
     """
     The Trainer.
@@ -40,11 +38,12 @@ class Trainer(object):
 
         autolabel = _set_up_options(args)
         print(2, args)
+        self.logger = self._init_logger(args)
         if args["autolabel"]:
             args["label"] = autolabel
 
         if args["label"]:
-            logger.info("Label: {}".format(args["label"]))
+            self.logger.info("Label: {}".format(args["label"]))
             try:
                 os.system("echo '\ek{}\e\\'".format(args["label"]))
             except:
@@ -267,7 +266,7 @@ class Trainer(object):
 
         avg_inc_accs, last_accs, forgettings = [], [], []
         for i, seed in enumerate(self.seed_list):
-            logger.warning("Launching run {}/{}".format(i + 1, len(self.seed_list)))
+            self.logger.warning("Launching run {}/{}".format(i + 1, len(self.seed_list)))
             args["seed"] = seed
             args["device"] = self.device
 
@@ -280,24 +279,24 @@ class Trainer(object):
             last_accs.append(last_acc)
             forgettings.append(forgetting)
 
-            # logger.info("Training finished in {}s.".format(int(time.time() - start_time)))
+            # self.logger.info("Training finished in {}s.".format(int(time.time() - start_time)))
             yield avg_inc_acc, last_acc, forgetting, True
 
-        logger.info("Label was: {}".format(args["label"]))
+        self.logger.info("Label was: {}".format(args["label"]))
 
-        logger.info(
+        self.logger.info(
             "Results done on {} seeds: avg: {}, last: {}, forgetting: {}".format(
                 len(self.seed_list), _aggregate_results(avg_inc_accs), _aggregate_results(last_accs),
                 _aggregate_results(forgettings)
             )
         )
-        logger.info("Individual results avg: {}".format([round(100 * acc, 2) for acc in avg_inc_accs]))
-        logger.info("Individual results last: {}".format([round(100 * acc, 2) for acc in last_accs]))
-        logger.info(
+        self.logger.info("Individual results avg: {}".format([round(100 * acc, 2) for acc in avg_inc_accs]))
+        self.logger.info("Individual results last: {}".format([round(100 * acc, 2) for acc in last_accs]))
+        self.logger.info(
             "Individual results forget: {}".format([round(100 * acc, 2) for acc in forgettings])
         )
 
-        logger.info(f"Command was {' '.join(sys.argv)}")
+        self.logger.info(f"Command was {' '.join(sys.argv)}")
         # experiment_begin = time()
         # for task_idx in range(self.task_num):
         #     print("================Task {} Start!================".format(task_idx))
@@ -403,7 +402,7 @@ class Trainer(object):
             # ------------
             # 4. Eval Task
             # ------------
-            logger.info("Eval on {}->{}.".format(0, task_info["max_class"]))
+            self.logger.info("Eval on {}->{}.".format(0, task_info["max_class"]))
             ypreds, ytrue = model.eval_task(test_loader)
             metric_logger.log_task(
                 ypreds, ytrue, task_size=task_info["increment"], zeroshot=args.get("all_test_classes")
@@ -422,33 +421,33 @@ class Trainer(object):
                     pickle.dump((ypreds, ytrue), f)
 
             if args["label"]:
-                logger.info(args["label"])
-            logger.info("Avg inc acc: {}.".format(metric_logger.last_results["incremental_accuracy"]))
-            logger.info("Current acc: {}.".format(metric_logger.last_results["accuracy"]))
-            logger.info(
+                self.logger.info(args["label"])
+            self.logger.info("Avg inc acc: {}.".format(metric_logger.last_results["incremental_accuracy"]))
+            self.logger.info("Current acc: {}.".format(metric_logger.last_results["accuracy"]))
+            self.logger.info(
                 "Avg inc acc top5: {}.".format(metric_logger.last_results["incremental_accuracy_top5"])
             )
-            logger.info("Current acc top5: {}.".format(metric_logger.last_results["accuracy_top5"]))
-            logger.info("Forgetting: {}.".format(metric_logger.last_results["forgetting"]))
-            logger.info("Cord metric: {:.2f}.".format(metric_logger.last_results["cord"]))
+            self.logger.info("Current acc top5: {}.".format(metric_logger.last_results["accuracy_top5"]))
+            self.logger.info("Forgetting: {}.".format(metric_logger.last_results["forgetting"]))
+            self.logger.info("Cord metric: {:.2f}.".format(metric_logger.last_results["cord"]))
             if task_id > 0:
-                logger.info(
+                self.logger.info(
                     "Old accuracy: {:.2f}, mean: {:.2f}.".format(
                         metric_logger.last_results["old_accuracy"],
                         metric_logger.last_results["avg_old_accuracy"]
                     )
                 )
-                logger.info(
+                self.logger.info(
                     "New accuracy: {:.2f}, mean: {:.2f}.".format(
                         metric_logger.last_results["new_accuracy"],
                         metric_logger.last_results["avg_new_accuracy"]
                     )
                 )
             if args.get("all_test_classes"):
-                logger.info(
+                self.logger.info(
                     "Seen classes: {:.2f}.".format(metric_logger.last_results["seen_classes_accuracy"])
                 )
-                logger.info(
+                self.logger.info(
                     "unSeen classes: {:.2f}.".format(
                         metric_logger.last_results["unseen_classes_accuracy"]
                     )
@@ -464,7 +463,7 @@ class Trainer(object):
             memory = model.get_memory()
             memory_val = model.get_val_memory()
 
-        logger.info(
+        self.logger.info(
             "Average Incremental Accuracy: {}.".format(results["results"][-1]["incremental_accuracy"])
         )
         if args["label"] is not None:
@@ -555,19 +554,19 @@ def _aggregate_results(list_results):
     return res
 
 def _set_seed(seed, nb_threads, no_benchmark, detect_anomaly):
-    logger.info("Set seed {}".format(seed))
+    self.logger.info("Set seed {}".format(seed))
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
     if no_benchmark:
-        logger.warning("CUDA algos are not determinists but faster!")
+        self.logger.warning("CUDA algos are not determinists but faster!")
     else:
-        logger.warning("CUDA algos are determinists but very slow!")
+        self.logger.warning("CUDA algos are determinists but very slow!")
     torch.backends.cudnn.deterministic = not no_benchmark  # This will slow down training.
     torch.set_num_threads(nb_threads)
     if detect_anomaly:
-        logger.info("Will detect autograd anomaly.")
+        self.logger.info("Will detect autograd anomaly.")
         torch.autograd.set_detect_anomaly(detect_anomaly)
 
 
@@ -587,7 +586,7 @@ def _set_results(config, start_date):
         results_folder = None
 
     if config["save_model"]:
-        logger.info("Model will be save at this rythm: {}.".format(config["save_model"]))
+        self.logger.info("Model will be save at this rythm: {}.".format(config["save_model"]))
 
     results = results_utils.get_template_results(config)
 
@@ -597,19 +596,19 @@ def _train_task(config, model, train_loader, val_loader, test_loader, run_id, ta
     if config["resume"] is not None and os.path.isdir(config["resume"]) \
        and ((config["resume_first"] and task_id == 0) or not config["resume_first"]):
         model.load_parameters(config["resume"], run_id)
-        logger.info(
+        self.logger.info(
             "Skipping training phase {} because reloading pretrained model.".format(task_id)
         )
     elif config["resume"] is not None and os.path.isfile(config["resume"]) and \
             os.path.exists(config["resume"]) and task_id == 0:
         # In case we resume from a single model file, it's assumed to be from the first task.
         model.network = config["resume"]
-        logger.info(
+        self.logger.info(
             "Skipping initial training phase {} because reloading pretrained model.".
             format(task_id)
         )
     else:
-        logger.info("Train on {}->{}.".format(task_info["min_class"], task_info["max_class"]))
+        self.logger.info("Train on {}->{}.".format(task_info["min_class"], task_info["max_class"]))
         model.train()
         model.train_task(train_loader, val_loader if val_loader else test_loader)
 
