@@ -33,23 +33,22 @@ def get_default_config():
 
     args = parser.get_parser().parse_args()
     args = vars(args)  # Converting argparse Namespace to a dict.
-    if args["seed_range"] is not None:
-        args["seed"] = list(range(args["seed_range"][0], args["seed_range"][1] + 1))
-        print("Seed range", args["seed"])
 
     return args
 
 
 if __name__ == "__main__":
-    config = parser.get_parser().parse_args()
-    config = vars(config)  # Converting argparse Namespace to a dict.
+    default = get_default_config()
 
+    config = Config("./config/podnet_cnn_cifar100_5steps.yaml").get_config_dict()
+
+    config = dict(default, **config)  # 用yaml的参数覆盖默认参数
     main(0, config)
-    # default = get_default_config()
+
     # # config = Config("./config/finetune.yaml").get_config_dict()
     # # config = Config("./config/lwf.yaml").get_config_dict()
     # # config = Config("./config/lwf.yaml").get_config_dict()
-    # config = Config("./config/podnet_cnn_cifar100.yaml").get_config_dict()
+    # config = Config("./config/podnet_cnn_cifar100_5steps.yaml").get_config_dict()
     # #
     # config = dict(default, **config) # 用yaml的参数覆盖默认参数
     # print(config)

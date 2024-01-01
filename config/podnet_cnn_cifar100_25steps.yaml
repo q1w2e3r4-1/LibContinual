@@ -1,25 +1,12 @@
-includes:
-  - headers/data.yaml
-  - headers/device.yaml
-  - headers/model.yaml
-  - headers/optimizer.yaml
-  - backbones/resnet12.yaml
-
+# changable params
 data_root: D:/data/douillard/cifar100/cifar100
-
 save_path: .
 
-# data
-init_cls_num: 10
-inc_cls_num: 10
-task_num: 10
-
-epoch: 100
-device_ids: 0
-n_gpu: 1
-val_per_epoch: 10
-
-batch_size: 128
+device: [0]
+initial-increment: 50
+increment: 2
+label: podnet_cnn_cifar100_25steps
+save_model: last
 
 #optimizer:
 #  name: SGD
@@ -104,7 +91,7 @@ finetuning_config:
 scheduling: cosine
 
 # Misc
-epochs: 20
+epochs: 160
 lr: 0.1
 lr_decay: 0.1
 optimizer: sgd

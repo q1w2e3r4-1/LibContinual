@@ -1,0 +1,214 @@
+Label: podnet_cnn_cifar100_5steps
+orders : None
+{'model': 'podnet', 'convnet': 'rebuffi', 'dropout': 0.0, 'herding': None, 'memory_size': 2000, 'temperature': 1, 'fixed_memory': True, 'dataset': 'cifar100', 'increment': 10, 'batch_size': 128, 'workers': 0, 'threads': 1, 'validation': 0.0, 'random_classes': False, 'max_task': None, 'onehot': False, 'initial_increment': None, 'sampler': None, 'data_path': '/data/douillard/', 'lr': 0.1, 'weight_decay': 0.0005, 'scheduling': 'cosine', 'lr_decay': 0.1, 'optimizer': 'sgd', 'epochs': 160, 'device': [0], 'label': 'podnet_cnn_cifar100_5steps', 'autolabel': False, 'seed': [1], 'seed_range': None, 'options': None, 'save_model': 'last', 'dump_predictions': False, 'logging': 'info', 'resume': None, 'resume_first': False, 'recompute_meta': False, 'no_benchmark': False, 'detect_anomaly': False, 'dummy': 1, 'includes': ['headers/dummy.yaml'], 'data_root': 'D:/data/douillard/cifar100/cifar100', 'save_path': '.', 'initial-increment': 50, 'backbone': {'name': 'resnet18'}, 'classifier': {'name': 'PODNet'}, 'eval_type': 'cnn', 'classifier_config': {'type': 'cosine', 'proxy_per_class': 10, 'distance': 'neg_stable_cosine_distance'}, 'postprocessor_config': {'type': 'learned_scaling', 'initial_value': 1.0}, 'pod_flat': {'scheduled_factor': 1.0}, 'pod_spatial': {'scheduled_factor': 3.0, 'collapse_channels': 'spatial'}, 'nca': {'margin': 0.6, 'scale': 1.0, 'exclude_pos_denominator': True}, 'groupwise_factors': {'old_weights': 0.0}, 'finetuning_config': {'sampling': 'undersampling', 'tuning': 'classifier', 'lr': 0.05, 'epochs': 20, 'scaling': None}, 'proxy_per_class': 1, 'weight_generation': {'type': 'imprinted', 'multi_class_diff': 'kmeans'}, 'dataset_transforms': {'color_jitter': True}}
+Launching run 1/1
+Set seed 1
+CUDA algos are determinists but very slow!
+Files already downloaded and verified
+Files already downloaded and verified
+Dataset iCIFAR100: class ordering: [87, 0, 52, 58, 44, 91, 68, 97, 51, 15, 94, 92, 10, 72, 49, 78, 61, 14, 8, 86, 84, 96, 18, 24, 32, 45, 88, 11, 4, 67, 69, 66, 77, 47, 79, 93, 29, 50, 57, 83, 17, 81, 41, 12, 37, 59, 25, 20, 80, 73, 1, 28, 6, 46, 62, 82, 53, 9, 31, 75, 38, 63, 33, 74, 27, 22, 36, 3, 16, 21, 60, 19, 70, 90, 89, 43, 5, 42, 65, 76, 40, 30, 23, 85, 2, 95, 56, 48, 71, 64, 98, 13, 99, 7, 34, 55, 54, 26, 35, 39].
+Downsampling type stride
+Using 10 proxies per class.
+Model will be save at this rythm: last.
+================Task 0 Start!================
+Testing on False unseen tasks (max class = 10).
+Before task
+Now 20 examplars per class.
+Group: convnet, lr: 0.1.
+Group: postprocessing, lr: 0.1.
+Group: new_weights, lr: 0.1.
+================Task 0 Training!================
+The training samples number: 5000
+Train on 0->10.
+train task
+nb 5000.
+Train [1/10] | Epoch [1/160] |	nca: 88.84441983699799, loss: 88.84441983699799 
+Train [1/10] | Epoch [2/160] |	nca: 79.11060011386871, loss: 79.11060011386871 
+Train [1/10] | Epoch [3/160] |	nca: 69.87183785438538, loss: 69.87183785438538 
+Train [1/10] | Epoch [4/160] |	nca: 67.760573387146, loss: 67.760573387146 
+Train [1/10] | Epoch [5/160] |	nca: 61.4876629114151, loss: 61.4876629114151 
+Train [1/10] | Epoch [6/160] |	nca: 57.765395641326904, loss: 57.765395641326904 
+Train [1/10] | Epoch [7/160] |	nca: 58.55780065059662, loss: 58.55780065059662 
+Train [1/10] | Epoch [8/160] |	nca: 61.118607878685, loss: 61.118607878685 
+Train [1/10] | Epoch [9/160] |	nca: 52.641666889190674, loss: 52.641666889190674 
+Train [1/10] | Epoch [10/160] |	nca: 50.011925518512726, loss: 50.011925518512726 
+Train [1/10] | Epoch [11/160] |	nca: 46.124371945858, loss: 46.124371945858 
+Train [1/10] | Epoch [12/160] |	nca: 47.98937165737152, loss: 47.98937165737152 
+Train [1/10] | Epoch [13/160] |	nca: 41.13694751262665, loss: 41.13694751262665 
+Train [1/10] | Epoch [14/160] |	nca: 38.33891588449478, loss: 38.33891588449478 
+Train [1/10] | Epoch [15/160] |	nca: 41.61185312271118, loss: 41.61185312271118 
+Train [1/10] | Epoch [16/160] |	nca: 37.48698478937149, loss: 37.48698478937149 
+Train [1/10] | Epoch [17/160] |	nca: 36.17705136537552, loss: 36.17705136537552 
+Train [1/10] | Epoch [18/160] |	nca: 31.558313488960266, loss: 31.558313488960266 
+Train [1/10] | Epoch [19/160] |	nca: 31.039835035800934, loss: 31.039835035800934 
+Train [1/10] | Epoch [20/160] |	nca: 29.14112424850464, loss: 29.14112424850464 
+Train [1/10] | Epoch [21/160] |	nca: 28.146292254328728, loss: 28.146292254328728 
+Train [1/10] | Epoch [22/160] |	nca: 27.267662465572357, loss: 27.267662465572357 
+Train [1/10] | Epoch [23/160] |	nca: 29.614355206489563, loss: 29.614355206489563 
+Train [1/10] | Epoch [24/160] |	nca: 25.7166149020195, loss: 25.7166149020195 
+Train [1/10] | Epoch [25/160] |	nca: 24.665851354599, loss: 24.665851354599 
+Train [1/10] | Epoch [26/160] |	nca: 31.460562586784363, loss: 31.460562586784363 
+Train [1/10] | Epoch [27/160] |	nca: 25.70610323548317, loss: 25.70610323548317 
+Train [1/10] | Epoch [28/160] |	nca: 27.466257512569427, loss: 27.466257512569427 
+Train [1/10] | Epoch [29/160] |	nca: 26.034245878458023, loss: 26.034245878458023 
+Train [1/10] | Epoch [30/160] |	nca: 22.61686474084854, loss: 22.61686474084854 
+Train [1/10] | Epoch [31/160] |	nca: 24.434981286525726, loss: 24.434981286525726 
+Train [1/10] | Epoch [32/160] |	nca: 24.49695262312889, loss: 24.49695262312889 
+Train [1/10] | Epoch [33/160] |	nca: 24.216795057058334, loss: 24.216795057058334 
+Train [1/10] | Epoch [34/160] |	nca: 21.524989813566208, loss: 21.524989813566208 
+Train [1/10] | Epoch [35/160] |	nca: 22.25376459956169, loss: 22.25376459956169 
+Train [1/10] | Epoch [36/160] |	nca: 25.10152617096901, loss: 25.10152617096901 
+Train [1/10] | Epoch [37/160] |	nca: 20.73759739100933, loss: 20.73759739100933 
+Train [1/10] | Epoch [38/160] |	nca: 19.360168516635895, loss: 19.360168516635895 
+Train [1/10] | Epoch [39/160] |	nca: 19.298235774040222, loss: 19.298235774040222 
+Train [1/10] | Epoch [40/160] |	nca: 21.336131006479263, loss: 21.336131006479263 
+Train [1/10] | Epoch [41/160] |	nca: 20.30236107110977, loss: 20.30236107110977 
+Train [1/10] | Epoch [42/160] |	nca: 19.6372711956501, loss: 19.6372711956501 
+Train [1/10] | Epoch [43/160] |	nca: 23.869147300720215, loss: 23.869147300720215 
+Train [1/10] | Epoch [44/160] |	nca: 18.047589749097824, loss: 18.047589749097824 
+Train [1/10] | Epoch [45/160] |	nca: 16.986017525196075, loss: 16.986017525196075 
+Train [1/10] | Epoch [46/160] |	nca: 18.702930718660355, loss: 18.702930718660355 
+Train [1/10] | Epoch [47/160] |	nca: 20.02269470691681, loss: 20.02269470691681 
+Train [1/10] | Epoch [48/160] |	nca: 16.908311873674393, loss: 16.908311873674393 
+Train [1/10] | Epoch [49/160] |	nca: 16.292940318584442, loss: 16.292940318584442 
+Train [1/10] | Epoch [50/160] |	nca: 17.29039904475212, loss: 17.29039904475212 
+Train [1/10] | Epoch [51/160] |	nca: 16.196531489491463, loss: 16.196531489491463 
+Train [1/10] | Epoch [52/160] |	nca: 17.626958400011063, loss: 17.626958400011063 
+Train [1/10] | Epoch [53/160] |	nca: 14.887350410223007, loss: 14.887350410223007 
+Train [1/10] | Epoch [54/160] |	nca: 13.493476524949074, loss: 13.493476524949074 
+Train [1/10] | Epoch [55/160] |	nca: 15.662740111351013, loss: 15.662740111351013 
+Train [1/10] | Epoch [56/160] |	nca: 19.79817247390747, loss: 19.79817247390747 
+Train [1/10] | Epoch [57/160] |	nca: 17.4656832665205, loss: 17.4656832665205 
+Train [1/10] | Epoch [58/160] |	nca: 14.333144053816795, loss: 14.333144053816795 
+Train [1/10] | Epoch [59/160] |	nca: 13.881128057837486, loss: 13.881128057837486 
+Train [1/10] | Epoch [60/160] |	nca: 12.178027212619781, loss: 12.178027212619781 
+Train [1/10] | Epoch [61/160] |	nca: 15.482374995946884, loss: 15.482374995946884 
+Train [1/10] | Epoch [62/160] |	nca: 21.452505439519882, loss: 21.452505439519882 
+Train [1/10] | Epoch [63/160] |	nca: 16.14898830652237, loss: 16.14898830652237 
+Train [1/10] | Epoch [64/160] |	nca: 18.0999355353415, loss: 18.0999355353415 
+Train [1/10] | Epoch [65/160] |	nca: 12.255662888288498, loss: 12.255662888288498 
+Train [1/10] | Epoch [66/160] |	nca: 11.21840363740921, loss: 11.21840363740921 
+Train [1/10] | Epoch [67/160] |	nca: 11.587950974702835, loss: 11.587950974702835 
+Train [1/10] | Epoch [68/160] |	nca: 14.211926087737083, loss: 14.211926087737083 
+Train [1/10] | Epoch [69/160] |	nca: 10.715613439679146, loss: 10.715613439679146 
+Train [1/10] | Epoch [70/160] |	nca: 10.682947255671024, loss: 10.682947255671024 
+Train [1/10] | Epoch [71/160] |	nca: 9.17995135486126, loss: 9.17995135486126 
+Train [1/10] | Epoch [72/160] |	nca: 14.190697431564331, loss: 14.190697431564331 
+Train [1/10] | Epoch [73/160] |	nca: 14.255453154444695, loss: 14.255453154444695 
+Train [1/10] | Epoch [74/160] |	nca: 10.786579564213753, loss: 10.786579564213753 
+Train [1/10] | Epoch [75/160] |	nca: 10.620489716529846, loss: 10.620489716529846 
+Train [1/10] | Epoch [76/160] |	nca: 8.217870600521564, loss: 8.217870600521564 
+Train [1/10] | Epoch [77/160] |	nca: 8.797773614525795, loss: 8.797773614525795 
+Train [1/10] | Epoch [78/160] |	nca: 15.660394340753555, loss: 15.660394340753555 
+Train [1/10] | Epoch [79/160] |	nca: 13.180777668952942, loss: 13.180777668952942 
+Train [1/10] | Epoch [80/160] |	nca: 12.27100694179535, loss: 12.27100694179535 
+Train [1/10] | Epoch [81/160] |	nca: 10.306177034974098, loss: 10.306177034974098 
+Train [1/10] | Epoch [82/160] |	nca: 9.393114902079105, loss: 9.393114902079105 
+Train [1/10] | Epoch [83/160] |	nca: 8.107420355081558, loss: 8.107420355081558 
+Train [1/10] | Epoch [84/160] |	nca: 11.96583865582943, loss: 11.96583865582943 
+Train [1/10] | Epoch [85/160] |	nca: 9.675739236176014, loss: 9.675739236176014 
+Train [1/10] | Epoch [86/160] |	nca: 7.106740206480026, loss: 7.106740206480026 
+Train [1/10] | Epoch [87/160] |	nca: 8.70975286513567, loss: 8.70975286513567 
+Train [1/10] | Epoch [88/160] |	nca: 6.708696834743023, loss: 6.708696834743023 
+Train [1/10] | Epoch [89/160] |	nca: 5.330506805330515, loss: 5.330506805330515 
+Train [1/10] | Epoch [90/160] |	nca: 15.562799111008644, loss: 15.562799111008644 
+Train [1/10] | Epoch [91/160] |	nca: 10.72421245276928, loss: 10.72421245276928 
+Train [1/10] | Epoch [92/160] |	nca: 11.199054040014744, loss: 11.199054040014744 
+Train [1/10] | Epoch [93/160] |	nca: 6.844364307820797, loss: 6.844364307820797 
+Train [1/10] | Epoch [94/160] |	nca: 5.671864660456777, loss: 5.671864660456777 
+Train [1/10] | Epoch [95/160] |	nca: 5.9802578911185265, loss: 5.9802578911185265 
+Train [1/10] | Epoch [96/160] |	nca: 9.053905107080936, loss: 9.053905107080936 
+Train [1/10] | Epoch [97/160] |	nca: 8.747503161430359, loss: 8.747503161430359 
+Train [1/10] | Epoch [98/160] |	nca: 5.682395348325372, loss: 5.682395348325372 
+Train [1/10] | Epoch [99/160] |	nca: 4.490729711949825, loss: 4.490729711949825 
+Train [1/10] | Epoch [100/160] |	nca: 8.596702877432108, loss: 8.596702877432108 
+Train [1/10] | Epoch [101/160] |	nca: 10.59942802786827, loss: 10.59942802786827 
+Train [1/10] | Epoch [102/160] |	nca: 7.602950654923916, loss: 7.602950654923916 
+Train [1/10] | Epoch [103/160] |	nca: 6.941958054900169, loss: 6.941958054900169 
+Train [1/10] | Epoch [104/160] |	nca: 6.013751566410065, loss: 6.013751566410065 
+Train [1/10] | Epoch [105/160] |	nca: 3.92404193431139, loss: 3.92404193431139 
+Train [1/10] | Epoch [106/160] |	nca: 4.092467879876494, loss: 4.092467879876494 
+Train [1/10] | Epoch [107/160] |	nca: 7.322939682751894, loss: 7.322939682751894 
+Train [1/10] | Epoch [108/160] |	nca: 3.9237627387046814, loss: 3.9237627387046814 
+Train [1/10] | Epoch [109/160] |	nca: 2.9092899411916733, loss: 2.9092899411916733 
+Train [1/10] | Epoch [110/160] |	nca: 2.9806635566055775, loss: 2.9806635566055775 
+Train [1/10] | Epoch [111/160] |	nca: 2.622420061379671, loss: 2.622420061379671 
+Train [1/10] | Epoch [112/160] |	nca: 2.217816775664687, loss: 2.217816775664687 
+Train [1/10] | Epoch [113/160] |	nca: 2.1876702290028334, loss: 2.1876702290028334 
+Train [1/10] | Epoch [114/160] |	nca: 2.1230416540056467, loss: 2.1230416540056467 
+Train [1/10] | Epoch [115/160] |	nca: 3.001470061019063, loss: 3.001470061019063 
+Train [1/10] | Epoch [116/160] |	nca: 1.8772341357544065, loss: 1.8772341357544065 
+Train [1/10] | Epoch [117/160] |	nca: 1.6524647790938616, loss: 1.6524647790938616 
+Train [1/10] | Epoch [118/160] |	nca: 5.20774245634675, loss: 5.20774245634675 
+Train [1/10] | Epoch [119/160] |	nca: 3.857597967609763, loss: 3.857597967609763 
+Train [1/10] | Epoch [120/160] |	nca: 2.7219928223639727, loss: 2.7219928223639727 
+Train [1/10] | Epoch [121/160] |	nca: 1.9818655289709568, loss: 1.9818655289709568 
+Train [1/10] | Epoch [122/160] |	nca: 1.9441731479018927, loss: 1.9441731479018927 
+Train [1/10] | Epoch [123/160] |	nca: 4.081394325941801, loss: 4.081394325941801 
+Train [1/10] | Epoch [124/160] |	nca: 3.762441474944353, loss: 3.762441474944353 
+Train [1/10] | Epoch [125/160] |	nca: 1.8112479783594608, loss: 1.8112479783594608 
+Train [1/10] | Epoch [126/160] |	nca: 1.8238635435700417, loss: 1.8238635435700417 
+Train [1/10] | Epoch [127/160] |	nca: 2.0173300434835255, loss: 2.0173300434835255 
+Train [1/10] | Epoch [128/160] |	nca: 1.2823276352137327, loss: 1.2823276352137327 
+Train [1/10] | Epoch [129/160] |	nca: 1.7218201365321875, loss: 1.7218201365321875 
+Train [1/10] | Epoch [130/160] |	nca: 1.3576721157878637, loss: 1.3576721157878637 
+Train [1/10] | Epoch [131/160] |	nca: 1.6389580825343728, loss: 1.6389580825343728 
+Train [1/10] | Epoch [132/160] |	nca: 3.2880026176571846, loss: 3.2880026176571846 
+Train [1/10] | Epoch [133/160] |	nca: 3.3953201845288277, loss: 3.3953201845288277 
+Train [1/10] | Epoch [134/160] |	nca: 1.8788081416860223, loss: 1.8788081416860223 
+Train [1/10] | Epoch [135/160] |	nca: 2.046871729195118, loss: 2.046871729195118 
+Train [1/10] | Epoch [136/160] |	nca: 1.856322773732245, loss: 1.856322773732245 
+Train [1/10] | Epoch [137/160] |	nca: 1.17637487500906, loss: 1.17637487500906 
+Train [1/10] | Epoch [138/160] |	nca: 1.012266760226339, loss: 1.012266760226339 
+Train [1/10] | Epoch [139/160] |	nca: 1.5749897547066212, loss: 1.5749897547066212 
+Train [1/10] | Epoch [140/160] |	nca: 1.100706983357668, loss: 1.100706983357668 
+Train [1/10] | Epoch [141/160] |	nca: 1.0929383039474487, loss: 1.0929383039474487 
+Train [1/10] | Epoch [142/160] |	nca: 2.0995299136266112, loss: 2.0995299136266112 
+Train [1/10] | Epoch [143/160] |	nca: 1.1189644378609955, loss: 1.1189644378609955 
+Train [1/10] | Epoch [144/160] |	nca: 0.8651203024201095, loss: 0.8651203024201095 
+Train [1/10] | Epoch [145/160] |	nca: 0.697887783870101, loss: 0.697887783870101 
+Train [1/10] | Epoch [146/160] |	nca: 1.347928721923381, loss: 1.347928721923381 
+Train [1/10] | Epoch [147/160] |	nca: 0.8967813467606902, loss: 0.8967813467606902 
+Train [1/10] | Epoch [148/160] |	nca: 1.2267691539600492, loss: 1.2267691539600492 
+Train [1/10] | Epoch [149/160] |	nca: 1.0294316057115793, loss: 1.0294316057115793 
+Train [1/10] | Epoch [150/160] |	nca: 0.8092709833290428, loss: 0.8092709833290428 
+Train [1/10] | Epoch [151/160] |	nca: 0.755003969417885, loss: 0.755003969417885 
+Train [1/10] | Epoch [152/160] |	nca: 0.7986320955678821, loss: 0.7986320955678821 
+Train [1/10] | Epoch [153/160] |	nca: 0.7164351996034384, loss: 0.7164351996034384 
+Train [1/10] | Epoch [154/160] |	nca: 0.6697168624959886, loss: 0.6697168624959886 
+Train [1/10] | Epoch [155/160] |	nca: 0.9029221888631582, loss: 0.9029221888631582 
+Train [1/10] | Epoch [156/160] |	nca: 0.6803017952479422, loss: 0.6803017952479422 
+Train [1/10] | Epoch [157/160] |	nca: 0.7366912122815847, loss: 0.7366912122815847 
+Train [1/10] | Epoch [158/160] |	nca: 0.8101147077977657, loss: 0.8101147077977657 
+Train [1/10] | Epoch [159/160] |	nca: 0.6266393573023379, loss: 0.6266393573023379 
+Train [1/10] | Epoch [160/160] |	nca: 0.5611117458902299, loss: 0.5611117458902299 
+after task
+Building & updating memory.
+after task
+Eval on 0->10.
+eval task
+podnet_cnn_cifar100_5steps
+Avg inc acc: 0.916.
+Current acc: {'total': 0.916, '00-09': 0.916}.
+Avg inc acc top5: 0.996.
+Current acc top5: {'total': 0.996}.
+Forgetting: 0.0.
+Cord metric: 0.92.
+================Task 1 Start!================
+Testing on False unseen tasks (max class = 20).
+Set memory of size: 200.
+Before task
+Generating imprinted weights
+Multi class diff kmeans.
+Now 20 examplars per class.
+Group: convnet, lr: 0.1.
+Group: postprocessing, lr: 0.1.
+Group: new_weights, lr: 0.1.
+================Task 1 Training!================
+The training samples number: 5200
+Train on 10->20.
+train task
+nb 5200.
+Train [2/10] | Epoch [1/160] |	nca: 53.1803075671196, flat: 10.831761576235294, pod: 49.00676304101944, loss: 113.01883339881897 
+Train [2/10] | Epoch [2/160] |	nca: 38.54024738073349, flat: 7.965770870447159, pod: 40.47199660539627, loss: 86.97801446914673 
+Train [2/10] | Epoch [3/160] |	nca: 34.53479486703873, flat: 7.873882085084915, pod: 38.693058013916016, loss: 81.1017347574234 

@@ -1,0 +1,25 @@
+Label: podnet_cnn_cifar100_50steps
+orders : None
+{'model': 'podnet', 'convnet': 'rebuffi', 'dropout': 0.0, 'herding': None, 'memory_size': 2000, 'temperature': 1, 'fixed_memory': True, 'dataset': 'cifar100', 'increment': 5, 'batch_size': 128, 'workers': 0, 'threads': 1, 'validation': 0.0, 'random_classes': False, 'max_task': None, 'onehot': False, 'initial_increment': 50, 'sampler': None, 'data_path': '/data/douillard/', 'lr': 0.1, 'weight_decay': 0.0005, 'scheduling': 'cosine', 'lr_decay': 0.1, 'optimizer': 'sgd', 'epochs': 20, 'device': [0], 'label': 'podnet_cnn_cifar100_50steps', 'autolabel': False, 'seed': [1], 'seed_range': None, 'options': ['config/podnet_cnn_cifar100.yaml'], 'save_model': 'last', 'dump_predictions': False, 'logging': 'info', 'resume': None, 'resume_first': False, 'recompute_meta': False, 'no_benchmark': False, 'detect_anomaly': False, 'includes': ['headers/data.yaml', 'headers/device.yaml', 'headers/model.yaml', 'headers/optimizer.yaml', 'backbones/resnet12.yaml'], 'data_root': 'D:/data/douillard/cifar100/cifar100', 'save_path': '.', 'init_cls_num': 10, 'inc_cls_num': 10, 'task_num': 10, 'device_ids': 0, 'n_gpu': 1, 'val_per_epoch': 10, 'backbone': {'name': 'resnet18'}, 'classifier': {'name': 'PODNet'}, 'eval_type': 'cnn', 'classifier_config': {'type': 'cosine', 'proxy_per_class': 10, 'distance': 'neg_stable_cosine_distance'}, 'postprocessor_config': {'type': 'learned_scaling', 'initial_value': 1.0}, 'pod_flat': {'scheduled_factor': 1.0}, 'pod_spatial': {'scheduled_factor': 3.0, 'collapse_channels': 'spatial'}, 'nca': {'margin': 0.6, 'scale': 1.0, 'exclude_pos_denominator': True}, 'groupwise_factors': {'old_weights': 0.0}, 'finetuning_config': {'sampling': 'undersampling', 'tuning': 'classifier', 'lr': 0.05, 'epochs': 20, 'scaling': None}, 'proxy_per_class': 1, 'weight_generation': {'type': 'imprinted', 'multi_class_diff': 'kmeans'}, 'dataset_transforms': {'color_jitter': True}}
+Launching run 1/1
+Set seed 1
+CUDA algos are determinists but very slow!
+Files already downloaded and verified
+Files already downloaded and verified
+Dataset iCIFAR100: class ordering: [87, 0, 52, 58, 44, 91, 68, 97, 51, 15, 94, 92, 10, 72, 49, 78, 61, 14, 8, 86, 84, 96, 18, 24, 32, 45, 88, 11, 4, 67, 69, 66, 77, 47, 79, 93, 29, 50, 57, 83, 17, 81, 41, 12, 37, 59, 25, 20, 80, 73, 1, 28, 6, 46, 62, 82, 53, 9, 31, 75, 38, 63, 33, 74, 27, 22, 36, 3, 16, 21, 60, 19, 70, 90, 89, 43, 5, 42, 65, 76, 40, 30, 23, 85, 2, 95, 56, 48, 71, 64, 98, 13, 99, 7, 34, 55, 54, 26, 35, 39].
+Downsampling type stride
+Using 10 proxies per class.
+model :  <generator object Module.parameters at 0x000002169DF87DD0>
+Model will be save at this rythm: last.
+================Task 0 Start!================
+Testing on False unseen tasks (max class = 50).
+Before task
+Now 20 examplars per class.
+Group: convnet, lr: 0.1.
+Group: postprocessing, lr: 0.1.
+Group: new_weights, lr: 0.1.
+================Task 0 Training!================
+The training samples number: 25000
+Train on 0->50.
+train task
+nb 25000.

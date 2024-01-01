@@ -15,6 +15,8 @@ from core.lib import factory, herding, losses, network, schedulers, utils
 from core.lib.network import hook
 from core.model.replay.base import IncrementalLearner
 
+from torchsummary import summary
+
 EPSILON = 1e-8
 
 

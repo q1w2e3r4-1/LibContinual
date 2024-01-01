@@ -25,6 +25,7 @@ from core.lib import factory
 from core.lib import logger as logger_lib
 from core.lib import metrics, results_utils, utils
 
+
 class Trainer(object):
     """
     The Trainer.
@@ -37,7 +38,6 @@ class Trainer(object):
         logger_lib.set_logging_level(args["logging"])
 
         autolabel = _set_up_options(args)
-        print(2, args)
         self.logger = self._init_logger(args)
         if args["autolabel"]:
             args["label"] = autolabel
@@ -118,8 +118,8 @@ class Trainer(object):
         log_path = os.path.join(save_path, "log")
         if not os.path.isdir(log_path):
             os.mkdir(log_path)
-        log_prefix = config['classifier']['name'] + "-" + config['backbone'][
-            'name'] + "-" + f"epoch{config['epoch']}"  # mode
+        log_prefix = config['classifier']['name'] + "-" + config['eval_type'] + \
+                     "-" + f"increment{config['increment']}" + "-" + f"epoch{config['epochs']}"  # mode
         log_file = os.path.join(log_path, "{}-{}.log".format(log_prefix, fmt_date_str()))
 
         # if not os.path.isfile(log_file):
@@ -146,7 +146,6 @@ class Trainer(object):
         # os.environ["CUDA_VISIBLE_DEVICES"] = str(config['device_ids'])
 
         device = torch.device("cuda:{}".format(config['device_ids']))
-        print("device :", device)
         return device
 
     def _init_files(self, config):
@@ -194,7 +193,6 @@ class Trainer(object):
         scheduler = GradualWarmupScheduler(
             optimizer, self.config
         )  # if config['warmup']==0, scheduler will be a normal lr_scheduler, jump into this class for details
-        print(optimizer)
 
         if 'init_epoch' in config.keys():
             init_epoch = config['init_epoch']
@@ -221,7 +219,7 @@ class Trainer(object):
         dic = {"backbone": backbone, "device": self.device}
 
         model = get_instance(arch, "classifier", config, **dic)
-        print(model)
+        print(model.eval())
         print("Trainable params in the model: {}".format(count_parameters(model)))
 
         model = model.to(self.device)
@@ -365,7 +363,6 @@ class Trainer(object):
         factory.set_device(args)
 
         inc_dataset, model = _set_data_model(args, class_order)
-        print("model : ", model)
         results, results_folder = _set_results(args, start_date)
 
         memory, memory_val = None, None
@@ -617,6 +614,7 @@ def _set_data_model(config, class_order):
     model.inc_dataset = inc_dataset
 
     return inc_dataset, model
+
 
 def _set_results(config, start_date):
     if config["label"]:

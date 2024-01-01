@@ -1,0 +1,14 @@
+torch==2.1.2
+torchvision
+numpy
+PyYaml
+scikit-learn
+matplotlib
+ray[dev]
+jupyter
+pandas
+requests
+psutil
+tqdm
+Pillow
+gensim
