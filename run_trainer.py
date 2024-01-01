@@ -11,11 +11,14 @@ sys.dont_write_bytecode = True
 
 def main(rank, config):
     begin = time.time()
-    for _ in train(config):  # `train` is a generator in order to be used with hyperfind.
+    trainer = Trainer(rank, config)
+    # print(config)
+    for _ in trainer.train_loop(config): # `train` is a generator in order to be used with hyperfind.
         pass
+
+    # for _ in train(config):
+    #     pass
     # print(1)
-    # trainer = Trainer(rank, config)
-    # trainer.train_loop()
     print("Time cost : ", time.time() - begin)
 
 
