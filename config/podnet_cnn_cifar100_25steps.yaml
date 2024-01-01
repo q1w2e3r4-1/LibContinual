@@ -3,10 +3,11 @@ data_root: D:/data/douillard/cifar100/cifar100
 save_path: .
 
 device: [0]
-initial-increment: 50
+initial_increment: 50
 increment: 2
 label: podnet_cnn_cifar100_25steps
 save_model: last
+eval_type: cnn
 
 #optimizer:
 #  name: SGD
@@ -53,8 +54,6 @@ convnet: rebuffi
 
 fixed_memory: true
 memory_size: 2000
-
-eval_type: cnn
 
 classifier_config:
   type: cosine

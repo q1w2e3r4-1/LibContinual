@@ -7,7 +7,7 @@ initial_increment: 50
 increment: 10
 label: podnet_cnn_cifar100_5steps
 save_model: last
-eval_type: cnn
+eval_type: nme
 
 #optimizer:
 #  name: SGD
