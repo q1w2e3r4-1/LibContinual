@@ -184,7 +184,7 @@ class Trainer(object):
 
         # model = model.to(self.device)
         return model
-    
+
     def _init_dataloader(self, config):
         '''
         Init DataLoader
@@ -220,10 +220,11 @@ class Trainer(object):
         The norm train loop:  before_task, train, test, after_task
         """
         experiment_begin = time()
+
         for task_idx in range(self.task_num):
             print("================Task {} Start!================".format(task_idx))
             if hasattr(self.model, 'before_task'):
-                self.model.before_task(task_idx, self.buffer, self.train_loader.get_loader(task_idx), self.test_loader.get_loader(task_idx))
+                self.model.before_task(self.train_loader.get_loader(task_idx), self.test_loader.get_loader(task_idx))
             
             (
                 _, __,

@@ -25,6 +25,7 @@ class IncrementalLearner(abc.ABC):
         self._network = None
 
     def set_task_info(self, task_info):
+        print(task_info)
         self._task = task_info["task"]
         self._total_n_classes = task_info["total_n_classes"]
         self._task_size = task_info["increment"]

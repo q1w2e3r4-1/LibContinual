@@ -297,6 +297,9 @@ class PODNet(ICarl):
         else:
             self._class_weights = None
 
+    def parameters(self):
+        return self._network.parameters()
+
     def _compute_loss(self, inputs, outputs, targets, onehot_targets, memory_flags):
         features, logits, atts = outputs["raw_features"], outputs["logits"], outputs["attention"]
 
