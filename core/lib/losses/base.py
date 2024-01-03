@@ -115,7 +115,7 @@ def ucir_ranking(logits, targets, n_classes, task_size, nb_negatives=2, margin=0
           CVPR 2019
     """
     gt_index = torch.zeros(logits.size()).to(logits.device)
-    gt_index = gt_index.scatter(1, targets.view(-1, 1), 1).ge(0.5)
+    gt_index = gt_index.scatter(1, targets.view(-1, 1).long(), 1).ge(0.5)
     gt_scores = logits.masked_select(gt_index)
     # get top-K scores on novel classes
     num_old_classes = logits.shape[1] - task_size

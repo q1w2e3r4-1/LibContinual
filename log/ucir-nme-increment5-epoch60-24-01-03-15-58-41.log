@@ -1,0 +1,102 @@
+Label: ucir_cifar100_10steps
+orders : None
+{'model': 'ucir', 'convnet': 'rebuffi', 'dropout': 0.0, 'herding': None, 'memory_size': 2000, 'temperature': 1, 'fixed_memory': True, 'dataset': 'cifar100', 'increment': 5, 'batch_size': 128, 'workers': 0, 'threads': 1, 'validation': 0.0, 'random_classes': False, 'max_task': None, 'onehot': False, 'initial_increment': 50, 'sampler': None, 'data_path': '/data/douillard/', 'lr': 0.1, 'weight_decay': 0.0005, 'scheduling': {'type': 'step', 'epochs': [80, 120], 'gamma': 0.1}, 'lr_decay': 0.1, 'optimizer': 'sgd', 'epochs': 60, 'device': [0], 'label': 'ucir_cifar100_10steps', 'autolabel': False, 'seed': [1], 'seed_range': None, 'options': None, 'save_model': 'last', 'dump_predictions': False, 'logging': 'info', 'resume': None, 'resume_first': False, 'recompute_meta': False, 'no_benchmark': False, 'detect_anomaly': False, 'dummy': 1, 'includes': ['headers/dummy.yaml'], 'data_root': 'D:/data/douillard/cifar100/cifar100', 'save_path': '.', 'eval_type': 'nme', 'convnet_config': {'last_relu': False}, 'classifier_config': {'scaling': 1, 'gamma': 1, 'type': 'cosine', 'proxy_per_class': 1, 'distance': 'neg_stable_cosine_distance'}, 'less_forget': {'scheduled_factor': True, 'lambda': 5}, 'postprocessor_config': {'initial_value': 1.0, 'type': 'learned_scaling'}, 'ranking_loss': {'factor': 1.0, 'nb_negatives': 2, 'margin': 0.5}, 'finetuning_config': {'tuning': 'classifier', 'lr': 0.05, 'epochs': 20}, 'weight_generation': {'type': 'imprinted'}}
+Launching run 1/1
+Set seed 1
+CUDA algos are determinists but very slow!
+Files already downloaded and verified
+Files already downloaded and verified
+Dataset iCIFAR100: class ordering: [87, 0, 52, 58, 44, 91, 68, 97, 51, 15, 94, 92, 10, 72, 49, 78, 61, 14, 8, 86, 84, 96, 18, 24, 32, 45, 88, 11, 4, 67, 69, 66, 77, 47, 79, 93, 29, 50, 57, 83, 17, 81, 41, 12, 37, 59, 25, 20, 80, 73, 1, 28, 6, 46, 62, 82, 53, 9, 31, 75, 38, 63, 33, 74, 27, 22, 36, 3, 16, 21, 60, 19, 70, 90, 89, 43, 5, 42, 65, 76, 40, 30, 23, 85, 2, 95, 56, 48, 71, 64, 98, 13, 99, 7, 34, 55, 54, 26, 35, 39].
+Downsampling type stride
+Model will be save at this rythm: last.
+================Task 0 Start!================
+Testing on False unseen tasks (max class = 50).
+Before task
+Now 20 examplars per class.
+================Task 0 Training!================
+The training samples number: 25000
+Train on 0->50.
+train task
+Train [1/11] | Epoch [1/60] |	clf: 673.6754336357117, loss: 673.6754336357117 
+Train [1/11] | Epoch [2/60] |	clf: 584.5852346420288, loss: 584.5852346420288 
+Train [1/11] | Epoch [3/60] |	clf: 533.7847456932068, loss: 533.7847456932068 
+Train [1/11] | Epoch [4/60] |	clf: 486.7991671562195, loss: 486.7991671562195 
+Train [1/11] | Epoch [5/60] |	clf: 440.9750760793686, loss: 440.9750760793686 
+Train [1/11] | Epoch [6/60] |	clf: 400.60836374759674, loss: 400.60836374759674 
+Train [1/11] | Epoch [7/60] |	clf: 373.2280578613281, loss: 373.2280578613281 
+Train [1/11] | Epoch [8/60] |	clf: 345.5863403081894, loss: 345.5863403081894 
+Train [1/11] | Epoch [9/60] |	clf: 328.81695568561554, loss: 328.81695568561554 
+Train [1/11] | Epoch [10/60] |	clf: 311.96696186065674, loss: 311.96696186065674 
+Train [1/11] | Epoch [11/60] |	clf: 297.00973665714264, loss: 297.00973665714264 
+Train [1/11] | Epoch [12/60] |	clf: 285.2691457271576, loss: 285.2691457271576 
+Train [1/11] | Epoch [13/60] |	clf: 273.1234841346741, loss: 273.1234841346741 
+Train [1/11] | Epoch [14/60] |	clf: 263.4805887937546, loss: 263.4805887937546 
+Train [1/11] | Epoch [15/60] |	clf: 256.2620253562927, loss: 256.2620253562927 
+Train [1/11] | Epoch [16/60] |	clf: 249.8564584851265, loss: 249.8564584851265 
+Train [1/11] | Epoch [17/60] |	clf: 243.6995062828064, loss: 243.6995062828064 
+Train [1/11] | Epoch [18/60] |	clf: 237.6010261774063, loss: 237.6010261774063 
+Train [1/11] | Epoch [19/60] |	clf: 234.55005091428757, loss: 234.55005091428757 
+Train [1/11] | Epoch [20/60] |	clf: 228.42750549316406, loss: 228.42750549316406 
+Train [1/11] | Epoch [21/60] |	clf: 225.32816070318222, loss: 225.32816070318222 
+Train [1/11] | Epoch [22/60] |	clf: 223.79021906852722, loss: 223.79021906852722 
+Train [1/11] | Epoch [23/60] |	clf: 220.63937360048294, loss: 220.63937360048294 
+Train [1/11] | Epoch [24/60] |	clf: 215.59108126163483, loss: 215.59108126163483 
+Train [1/11] | Epoch [25/60] |	clf: 213.08306342363358, loss: 213.08306342363358 
+Train [1/11] | Epoch [26/60] |	clf: 210.59121465682983, loss: 210.59121465682983 
+Train [1/11] | Epoch [27/60] |	clf: 208.35386210680008, loss: 208.35386210680008 
+Train [1/11] | Epoch [28/60] |	clf: 204.7048945426941, loss: 204.7048945426941 
+Train [1/11] | Epoch [29/60] |	clf: 203.55742865800858, loss: 203.55742865800858 
+Train [1/11] | Epoch [30/60] |	clf: 202.67421609163284, loss: 202.67421609163284 
+Train [1/11] | Epoch [31/60] |	clf: 200.5966553092003, loss: 200.5966553092003 
+Train [1/11] | Epoch [32/60] |	clf: 198.10219234228134, loss: 198.10219234228134 
+Train [1/11] | Epoch [33/60] |	clf: 199.75512784719467, loss: 199.75512784719467 
+Train [1/11] | Epoch [34/60] |	clf: 195.70612931251526, loss: 195.70612931251526 
+Train [1/11] | Epoch [35/60] |	clf: 194.23221737146378, loss: 194.23221737146378 
+Train [1/11] | Epoch [36/60] |	clf: 192.78208017349243, loss: 192.78208017349243 
+Train [1/11] | Epoch [37/60] |	clf: 191.47613245248795, loss: 191.47613245248795 
+Train [1/11] | Epoch [38/60] |	clf: 193.0531204342842, loss: 193.0531204342842 
+Train [1/11] | Epoch [39/60] |	clf: 192.5967570245266, loss: 192.5967570245266 
+Train [1/11] | Epoch [40/60] |	clf: 188.76734000444412, loss: 188.76734000444412 
+Train [1/11] | Epoch [41/60] |	clf: 187.88830882310867, loss: 187.88830882310867 
+Train [1/11] | Epoch [42/60] |	clf: 188.25975519418716, loss: 188.25975519418716 
+Train [1/11] | Epoch [43/60] |	clf: 186.26256954669952, loss: 186.26256954669952 
+Train [1/11] | Epoch [44/60] |	clf: 186.59612661600113, loss: 186.59612661600113 
+Train [1/11] | Epoch [45/60] |	clf: 187.03356909751892, loss: 187.03356909751892 
+Train [1/11] | Epoch [46/60] |	clf: 185.82920289039612, loss: 185.82920289039612 
+Train [1/11] | Epoch [47/60] |	clf: 184.09430706501007, loss: 184.09430706501007 
+Train [1/11] | Epoch [48/60] |	clf: 181.5601457953453, loss: 181.5601457953453 
+Train [1/11] | Epoch [49/60] |	clf: 181.9532852768898, loss: 181.9532852768898 
+Train [1/11] | Epoch [50/60] |	clf: 182.79832583665848, loss: 182.79832583665848 
+Train [1/11] | Epoch [51/60] |	clf: 181.0558362007141, loss: 181.0558362007141 
+Train [1/11] | Epoch [52/60] |	clf: 179.78967595100403, loss: 179.78967595100403 
+Train [1/11] | Epoch [53/60] |	clf: 181.1809397339821, loss: 181.1809397339821 
+Train [1/11] | Epoch [54/60] |	clf: 180.22057628631592, loss: 180.22057628631592 
+Train [1/11] | Epoch [55/60] |	clf: 179.23501813411713, loss: 179.23501813411713 
+Train [1/11] | Epoch [56/60] |	clf: 181.80104500055313, loss: 181.80104500055313 
+Train [1/11] | Epoch [57/60] |	clf: 177.12119430303574, loss: 177.12119430303574 
+Train [1/11] | Epoch [58/60] |	clf: 176.58563673496246, loss: 176.58563673496246 
+Train [1/11] | Epoch [59/60] |	clf: 177.14128631353378, loss: 177.14128631353378 
+Train [1/11] | Epoch [60/60] |	clf: 174.04747211933136, loss: 174.04747211933136 
+after task
+Building & updating memory.
+after task
+Scale is 7.317768096923828.
+Eval on 0->50.
+eval task
+ucir_cifar100_10steps
+Avg inc acc: 0.647.
+Current acc: {'total': 0.647, '00-09': 0.73, '10-19': 0.688, '20-29': 0.619, '30-39': 0.545, '40-49': 0.655}.
+Avg inc acc top5: 0.892.
+Current acc top5: {'total': 0.892}.
+Forgetting: 0.0.
+Cord metric: 0.65.
+================Task 1 Start!================
+Testing on False unseen tasks (max class = 55).
+Set memory of size: 1000.
+Before task
+Generating imprinted weights
+Now 20 examplars per class.
+================Task 1 Training!================
+The training samples number: 3500
+Train on 50->55.
+train task
