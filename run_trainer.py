@@ -4,7 +4,6 @@ from core.config import Config
 from core import Trainer
 import time
 from core.utils import parser
-from train import train
 
 sys.dont_write_bytecode = True
 
@@ -40,7 +39,15 @@ def get_default_config():
 if __name__ == "__main__":
     default = get_default_config()
 
-    config = Config("./config/podnet_cnn_cifar100_5steps.yaml").get_config_dict()
+    # config = Config("./config/podnet_nme_cifar100_50steps.yaml").get_config_dict()
+    # config = Config("./config/podnet_nme_cifar100_25steps.yaml").get_config_dict()
+    # config = Config("./config/podnet_nme_cifar100_10steps.yaml").get_config_dict()
+    # config = Config("./config/podnet_nme_cifar100_5steps.yaml").get_config_dict()
+    #
+    config = Config("./config/podnet_nme_cifar10_5steps.yaml").get_config_dict()
+    # config = Config("./config/ucir_cifar100.yaml").get_config_dict()
+    # config = Config("./config/icarl_cifar100.yaml").get_config_dict()
+    # config = Config("./config/lwm_cifar100.yaml").get_config_dict()
 
     config = dict(default, **config)  # 用yaml的参数覆盖默认参数
     main(0, config)

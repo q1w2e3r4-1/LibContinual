@@ -29,7 +29,7 @@ from core.lib import metrics, results_utils, utils
 class Trainer(object):
     """
     The Trainer.
-    
+
     Build a trainer from config dict, set up optimizer, model, etc.
     """
 
@@ -118,7 +118,7 @@ class Trainer(object):
         log_path = os.path.join(save_path, "log")
         if not os.path.isdir(log_path):
             os.mkdir(log_path)
-        log_prefix = config['classifier']['name'] + "-" + config['eval_type'] + \
+        log_prefix = config['model'] + "-" + config['eval_type'] + \
                      "-" + f"increment{config['increment']}" + "-" + f"epoch{config['epochs']}"  # mode
         log_file = os.path.join(log_path, "{}-{}.log".format(log_prefix, fmt_date_str()))
 

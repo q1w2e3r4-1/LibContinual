@@ -4,8 +4,8 @@ save_path: .
 
 device: [0]
 initial_increment: 50
-increment: 10
-label: podnet_cnn_cifar100_5steps
+increment: 1
+label: podnet_nme_cifar100_50steps
 save_model: last
 eval_type: nme
 

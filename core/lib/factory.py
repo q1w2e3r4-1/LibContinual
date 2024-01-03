@@ -59,17 +59,17 @@ def get_convnet(convnet_type, **kwargs):
 
 def get_model(args):
     dict_models = {
-        # "icarl": models.ICarl,
+        "icarl": replay.ICarl,
         # "lwf": None,
-        # "e2e": models.End2End,
+        "e2e": replay.End2End,
         # "fixed": None,
         # "oracle": None,
-        # "bic": models.BiC,
-        # "ucir": models.UCIR,
+        "bic": replay.BiC,
+        "ucir": replay.UCIR,
         "podnet": replay.PODNet,
-        # "lwm": models.LwM,
-        # "zil": models.ZIL,
-        # "gdumb": models.GDumb
+        "lwm": replay.LwM,
+        "zil": replay.ZIL,
+        "gdumb": replay.GDumb
     }
 
     model = args["model"].lower()

@@ -1,0 +1,27 @@
+# changable params
+data_root: D:/data/douillard/cifar100/cifar100
+save_path: .
+
+device: [0]
+initial_increment: 50
+increment: 5
+label: icarl_cifar100_10steps
+save_model: last
+eval_type: nme
+#random_classes: True
+epochs: 70
+
+dataset: cifar100
+model: icarl
+
+# changable ends
+
+convnet: rebuffi
+
+lr: 2.
+weight_decay: 0.00005
+scheduling:
+  - 49
+  - 63
+lr_decay: 0.2
+optimizer: sgd

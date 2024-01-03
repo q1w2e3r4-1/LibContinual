@@ -1,0 +1,19 @@
+Label: ucir_cifar100_10steps
+orders : None
+{'model': 'ucir', 'convnet': 'rebuffi', 'dropout': 0.0, 'herding': None, 'memory_size': 2000, 'temperature': 1, 'fixed_memory': True, 'dataset': 'cifar100', 'increment': 5, 'batch_size': 128, 'workers': 0, 'threads': 1, 'validation': 0.0, 'random_classes': False, 'max_task': None, 'onehot': False, 'initial_increment': 50, 'sampler': None, 'data_path': '/data/douillard/', 'lr': 0.1, 'weight_decay': 0.0005, 'scheduling': {'type': 'step', 'epochs': [80, 120], 'gamma': 0.1}, 'lr_decay': 0.1, 'optimizer': 'sgd', 'epochs': 60, 'device': [0], 'label': 'ucir_cifar100_10steps', 'autolabel': False, 'seed': [1], 'seed_range': None, 'options': None, 'save_model': 'last', 'dump_predictions': False, 'logging': 'info', 'resume': None, 'resume_first': False, 'recompute_meta': False, 'no_benchmark': False, 'detect_anomaly': False, 'dummy': 1, 'includes': ['headers/dummy.yaml'], 'data_root': 'D:/data/douillard/cifar100/cifar100', 'save_path': '.', 'eval_type': 'nme', 'convnet_config': {'last_relu': False}, 'classifier_config': {'scaling': 1, 'gamma': 1, 'type': 'cosine', 'proxy_per_class': 1, 'distance': 'neg_stable_cosine_distance'}, 'less_forget': {'scheduled_factor': True, 'lambda': 5}, 'postprocessor_config': {'initial_value': 1.0, 'type': 'learned_scaling'}, 'ranking_loss': {'factor': 1.0, 'nb_negatives': 2, 'margin': 0.5}, 'finetuning_config': {'tuning': 'classifier', 'lr': 0.05, 'epochs': 20}, 'weight_generation': {'type': 'imprinted'}}
+Launching run 1/1
+Set seed 1
+CUDA algos are determinists but very slow!
+Files already downloaded and verified
+Files already downloaded and verified
+Dataset iCIFAR100: class ordering: [87, 0, 52, 58, 44, 91, 68, 97, 51, 15, 94, 92, 10, 72, 49, 78, 61, 14, 8, 86, 84, 96, 18, 24, 32, 45, 88, 11, 4, 67, 69, 66, 77, 47, 79, 93, 29, 50, 57, 83, 17, 81, 41, 12, 37, 59, 25, 20, 80, 73, 1, 28, 6, 46, 62, 82, 53, 9, 31, 75, 38, 63, 33, 74, 27, 22, 36, 3, 16, 21, 60, 19, 70, 90, 89, 43, 5, 42, 65, 76, 40, 30, 23, 85, 2, 95, 56, 48, 71, 64, 98, 13, 99, 7, 34, 55, 54, 26, 35, 39].
+Downsampling type stride
+Model will be save at this rythm: last.
+================Task 0 Start!================
+Testing on False unseen tasks (max class = 50).
+Before task
+Now 20 examplars per class.
+================Task 0 Training!================
+The training samples number: 25000
+Train on 0->50.
+train task

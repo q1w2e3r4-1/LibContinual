@@ -276,7 +276,7 @@ class IncrementalDataset:
     def _setup_data(
         self,
         datasets,
-        random_order=False,
+        random_order=True,
         class_order=None,
         seed=1,
         increment=10,

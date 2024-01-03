@@ -1,0 +1,238 @@
+Label: lwm_cifar100_10steps
+orders : None
+{'model': 'lwm', 'convnet': 'resnet34', 'dropout': 0.0, 'herding': None, 'memory_size': 2000, 'temperature': 1, 'fixed_memory': False, 'dataset': 'cifar100', 'increment': 5, 'batch_size': 128, 'workers': 0, 'threads': 1, 'validation': 0.0, 'random_classes': False, 'max_task': None, 'onehot': False, 'initial_increment': 50, 'sampler': None, 'data_path': '/data/douillard/', 'lr': 0.01, 'weight_decay': 5e-05, 'scheduling': None, 'lr_decay': 0.2, 'optimizer': 'sgd_nesterov', 'epochs': 70, 'device': [0], 'label': 'lwm_cifar100_10steps', 'autolabel': False, 'seed': [1], 'seed_range': None, 'options': None, 'save_model': 'last', 'dump_predictions': False, 'logging': 'info', 'resume': None, 'resume_first': False, 'recompute_meta': False, 'no_benchmark': False, 'detect_anomaly': False, 'dummy': 1, 'includes': ['headers/dummy.yaml'], 'data_root': 'D:/data/douillard/cifar100/cifar100', 'save_path': '.', 'eval_type': 'nme', 'distillation_config': {'factor': 1.0}, 'attention_config': {'factor': 0.1}, 'dataset_transforms': {'color_jitter': False}}
+Launching run 1/1
+Set seed 1
+CUDA algos are determinists but very slow!
+Files already downloaded and verified
+Files already downloaded and verified
+Dataset iCIFAR100: class ordering: [87, 0, 52, 58, 44, 91, 68, 97, 51, 15, 94, 92, 10, 72, 49, 78, 61, 14, 8, 86, 84, 96, 18, 24, 32, 45, 88, 11, 4, 67, 69, 66, 77, 47, 79, 93, 29, 50, 57, 83, 17, 81, 41, 12, 37, 59, 25, 20, 80, 73, 1, 28, 6, 46, 62, 82, 53, 9, 31, 75, 38, 63, 33, 74, 27, 22, 36, 3, 16, 21, 60, 19, 70, 90, 89, 43, 5, 42, 65, 76, 40, 30, 23, 85, 2, 95, 56, 48, 71, 64, 98, 13, 99, 7, 34, 55, 54, 26, 35, 39].
+Features dimension is 128.
+Model will be save at this rythm: last.
+================Task 0 Start!================
+Testing on False unseen tasks (max class = 50).
+Before task
+================Task 0 Training!================
+The training samples number: 25000
+Train on 0->50.
+train task
+after task
+after task
+Eval on 0->50.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.573.
+Current acc: {'total': 0.573, '00-09': 0.62, '10-19': 0.611, '20-29': 0.492, '30-39': 0.549, '40-49': 0.594}.
+Avg inc acc top5: 0.859.
+Current acc top5: {'total': 0.859}.
+Forgetting: 0.0.
+Cord metric: 0.57.
+================Task 1 Start!================
+Testing on False unseen tasks (max class = 55).
+Before task
+================Task 1 Training!================
+The training samples number: 2500
+Train on 50->55.
+train task
+after task
+after task
+Eval on 0->55.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.5445.
+Current acc: {'total': 0.516, '00-09': 0.576, '10-19': 0.578, '20-29': 0.442, '30-39': 0.515, '40-49': 0.554, '50-59': 0.346}.
+Avg inc acc top5: 0.849.
+Current acc top5: {'total': 0.839}.
+Forgetting: -0.02071428571428571.
+Cord metric: 0.53.
+Old accuracy: 0.53, mean: 0.53.
+New accuracy: 0.35, mean: 0.35.
+================Task 2 Start!================
+Testing on False unseen tasks (max class = 60).
+Before task
+================Task 2 Training!================
+The training samples number: 2500
+Train on 55->60.
+train task
+after task
+after task
+Eval on 0->60.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.5253333333333333.
+Current acc: {'total': 0.487, '00-09': 0.526, '10-19': 0.548, '20-29': 0.411, '30-39': 0.468, '40-49': 0.539, '50-59': 0.431}.
+Avg inc acc top5: 0.8383333333333333.
+Current acc top5: {'total': 0.817}.
+Forgetting: 0.041285714285714266.
+Cord metric: 0.52.
+Old accuracy: 0.48, mean: 0.51.
+New accuracy: 0.56, mean: 0.45.
+================Task 3 Start!================
+Testing on False unseen tasks (max class = 65).
+Before task
+================Task 3 Training!================
+The training samples number: 2500
+Train on 60->65.
+train task
+after task
+after task
+Eval on 0->65.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.48775.
+Current acc: {'total': 0.375, '00-09': 0.41, '10-19': 0.449, '20-29': 0.318, '30-39': 0.373, '40-49': 0.402, '50-59': 0.276, '60-69': 0.422}.
+Avg inc acc top5: 0.817.
+Current acc top5: {'total': 0.753}.
+Forgetting: 0.080875.
+Cord metric: 0.47.
+Old accuracy: 0.37, mean: 0.46.
+New accuracy: 0.42, mean: 0.44.
+================Task 4 Start!================
+Testing on False unseen tasks (max class = 70).
+Before task
+================Task 4 Training!================
+The training samples number: 2500
+Train on 65->70.
+train task
+after task
+after task
+Eval on 0->70.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.45600000000000007.
+Current acc: {'total': 0.329, '00-09': 0.333, '10-19': 0.363, '20-29': 0.282, '30-39': 0.333, '40-49': 0.345, '50-59': 0.201, '60-69': 0.443}.
+Avg inc acc top5: 0.7964.
+Current acc top5: {'total': 0.714}.
+Forgetting: 0.177375.
+Cord metric: 0.45.
+Old accuracy: 0.31, mean: 0.42.
+New accuracy: 0.59, mean: 0.48.
+================Task 5 Start!================
+Testing on False unseen tasks (max class = 75).
+Before task
+================Task 5 Training!================
+The training samples number: 2500
+Train on 70->75.
+train task
+after task
+after task
+Eval on 0->75.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.42750000000000005.
+Current acc: {'total': 0.285, '00-09': 0.264, '10-19': 0.287, '20-29': 0.271, '30-39': 0.261, '40-49': 0.333, '50-59': 0.138, '60-69': 0.271, '70-79': 0.63}.
+Avg inc acc top5: 0.7758333333333333.
+Current acc top5: {'total': 0.673}.
+Forgetting: 0.14277777777777775.
+Cord metric: 0.42.
+Old accuracy: 0.26, mean: 0.39.
+New accuracy: 0.63, mean: 0.51.
+================Task 6 Start!================
+Testing on False unseen tasks (max class = 80).
+Before task
+================Task 6 Training!================
+The training samples number: 2500
+Train on 75->80.
+train task
+after task
+after task
+Eval on 0->80.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.4022857142857143.
+Current acc: {'total': 0.251, '00-09': 0.174, '10-19': 0.231, '20-29': 0.237, '30-39': 0.223, '40-49': 0.23, '50-59': 0.142, '60-69': 0.196, '70-79': 0.573}.
+Avg inc acc top5: 0.7544285714285713.
+Current acc top5: {'total': 0.626}.
+Forgetting: 0.26266666666666666.
+Cord metric: 0.40.
+Old accuracy: 0.22, mean: 0.36.
+New accuracy: 0.67, mean: 0.54.
+================Task 7 Start!================
+Testing on False unseen tasks (max class = 85).
+Before task
+================Task 7 Training!================
+The training samples number: 2500
+Train on 80->85.
+train task
+after task
+after task
+Eval on 0->85.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.37675000000000003.
+Current acc: {'total': 0.198, '00-09': 0.121, '10-19': 0.171, '20-29': 0.138, '30-39': 0.166, '40-49': 0.161, '50-59': 0.076, '60-69': 0.119, '70-79': 0.344, '80-89': 0.768}.
+Avg inc acc top5: 0.7321249999999999.
+Current acc top5: {'total': 0.576}.
+Forgetting: 0.2306.
+Cord metric: 0.38.
+Old accuracy: 0.16, mean: 0.33.
+New accuracy: 0.77, mean: 0.57.
+================Task 8 Start!================
+Testing on False unseen tasks (max class = 90).
+Before task
+================Task 8 Training!================
+The training samples number: 2500
+Train on 85->90.
+train task
+after task
+after task
+Eval on 0->90.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.3553333333333334.
+Current acc: {'total': 0.184, '00-09': 0.048, '10-19': 0.145, '20-29': 0.121, '30-39': 0.097, '40-49': 0.125, '50-59': 0.078, '60-69': 0.103, '70-79': 0.266, '80-89': 0.669}.
+Avg inc acc top5: 0.7125555555555555.
+Current acc top5: {'total': 0.556}.
+Forgetting: 0.34859999999999997.
+Cord metric: 0.37.
+Old accuracy: 0.15, mean: 0.31.
+New accuracy: 0.68, mean: 0.58.
+================Task 9 Start!================
+Testing on False unseen tasks (max class = 95).
+Before task
+================Task 9 Training!================
+The training samples number: 2500
+Train on 90->95.
+train task
+after task
+after task
+Eval on 0->95.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.33640000000000003.
+Current acc: {'total': 0.166, '00-09': 0.04, '10-19': 0.156, '20-29': 0.063, '30-39': 0.095, '40-49': 0.108, '50-59': 0.04, '60-69': 0.054, '70-79': 0.202, '80-89': 0.446, '90-99': 0.752}.
+Avg inc acc top5: 0.6927999999999999.
+Current acc top5: {'total': 0.515}.
+Forgetting: 0.2892727272727273.
+Cord metric: 0.35.
+Old accuracy: 0.13, mean: 0.29.
+New accuracy: 0.75, mean: 0.60.
+================Task 10 Start!================
+Testing on False unseen tasks (max class = 100).
+Before task
+================Task 10 Training!================
+The training samples number: 2500
+Train on 95->100.
+train task
+after task
+after task
+Saving model at results\dev\lwm\202401\week_1\20240103_lwm_cifar100_10steps\net_0_task_10.pth.
+Eval on 0->100.
+eval task
+lwm_cifar100_10steps
+Avg inc acc: 0.3190909090909091.
+Current acc: {'total': 0.146, '00-09': 0.04, '10-19': 0.114, '20-29': 0.05, '30-39': 0.063, '40-49': 0.092, '50-59': 0.033, '60-69': 0.038, '70-79': 0.128, '80-89': 0.33, '90-99': 0.574}.
+Avg inc acc top5: 0.6727272727272726.
+Current acc top5: {'total': 0.472}.
+Forgetting: 0.4025454545454545.
+Cord metric: 0.33.
+Old accuracy: 0.12, mean: 0.28.
+New accuracy: 0.59, mean: 0.60.
+Average Incremental Accuracy: 0.3190909090909091.
+Label was: lwm_cifar100_10steps
+Results done on 1 seeds: avg: 31.91, last: 14.6, forgetting: 40.25
+Individual results avg: [31.91]
+Individual results last: [14.6]
+Individual results forget: [40.25]
+Command was D:/go_to_D/ML/Final/LibContinual/run_trainer.py
+Time cost :  1686.428548336029

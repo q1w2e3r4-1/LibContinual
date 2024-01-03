@@ -1,0 +1,38 @@
+# I haven't been able to reproduce LwM results!
+# And since official code is not available, I'm not sure how to solve that.
+# changable params
+data_root: D:/data/douillard/cifar100/cifar100
+save_path: .
+
+device: [0]
+initial_increment: 50
+increment: 5
+label: lwm_cifar100_10steps
+save_model: last
+eval_type: nme
+#random_classes: True
+epochs: 70
+
+dataset: cifar100
+model: lwm
+
+# changable ends
+
+convnet: resnet34
+
+memory_size: 2000
+
+distillation_config:
+  factor: 1.0
+
+attention_config:
+  factor: 0.1
+
+lr: 0.01
+weight_decay: 0.00005
+scheduling: null
+lr_decay: 0.2
+optimizer: sgd_nesterov
+
+dataset_transforms:
+  color_jitter: false

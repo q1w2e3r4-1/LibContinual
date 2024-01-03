@@ -1,0 +1,1052 @@
+Label: icarl_cifar100_10steps
+orders : None
+{'model': 'icarl', 'convnet': 'rebuffi', 'dropout': 0.0, 'herding': None, 'memory_size': 2000, 'temperature': 1, 'fixed_memory': False, 'dataset': 'cifar100', 'increment': 5, 'batch_size': 128, 'workers': 0, 'threads': 1, 'validation': 0.0, 'random_classes': False, 'max_task': None, 'onehot': False, 'initial_increment': 50, 'sampler': None, 'data_path': '/data/douillard/', 'lr': 2.0, 'weight_decay': 5e-05, 'scheduling': [49, 63], 'lr_decay': 0.2, 'optimizer': 'sgd', 'epochs': 70, 'device': [0], 'label': 'icarl_cifar100_10steps', 'autolabel': False, 'seed': [1], 'seed_range': None, 'options': None, 'save_model': 'last', 'dump_predictions': False, 'logging': 'info', 'resume': None, 'resume_first': False, 'recompute_meta': False, 'no_benchmark': False, 'detect_anomaly': False, 'dummy': 1, 'includes': ['headers/dummy.yaml'], 'data_root': 'D:/data/douillard/cifar100/cifar100', 'save_path': '.', 'eval_type': 'nme'}
+Launching run 1/1
+Set seed 1
+CUDA algos are determinists but very slow!
+Files already downloaded and verified
+Files already downloaded and verified
+Dataset iCIFAR100: class ordering: [87, 0, 52, 58, 44, 91, 68, 97, 51, 15, 94, 92, 10, 72, 49, 78, 61, 14, 8, 86, 84, 96, 18, 24, 32, 45, 88, 11, 4, 67, 69, 66, 77, 47, 79, 93, 29, 50, 57, 83, 17, 81, 41, 12, 37, 59, 25, 20, 80, 73, 1, 28, 6, 46, 62, 82, 53, 9, 31, 75, 38, 63, 33, 74, 27, 22, 36, 3, 16, 21, 60, 19, 70, 90, 89, 43, 5, 42, 65, 76, 40, 30, 23, 85, 2, 95, 56, 48, 71, 64, 98, 13, 99, 7, 34, 55, 54, 26, 35, 39].
+Downsampling type stride
+Model will be save at this rythm: last.
+================Task 0 Start!================
+Testing on False unseen tasks (max class = 50).
+Before task
+Now 40 examplars per class.
+================Task 0 Training!================
+The training samples number: 25000
+Train on 0->50.
+train task
+nb 25000.
+Train [1/11] | Epoch [1/70] |	loss: 22.204986453056335 
+Train [1/11] | Epoch [2/70] |	loss: 16.93584620207548 
+Train [1/11] | Epoch [3/70] |	loss: 16.094524696469307 
+Train [1/11] | Epoch [4/70] |	loss: 15.415326535701752 
+Train [1/11] | Epoch [5/70] |	loss: 14.774353377521038 
+Train [1/11] | Epoch [6/70] |	loss: 13.970170848071575 
+Train [1/11] | Epoch [7/70] |	loss: 13.186676047742367 
+Train [1/11] | Epoch [8/70] |	loss: 12.504027519375086 
+Train [1/11] | Epoch [9/70] |	loss: 11.925475627183914 
+Train [1/11] | Epoch [10/70] |	loss: 11.550173353403807 
+Train [1/11] | Epoch [11/70] |	loss: 11.083481803536415 
+Train [1/11] | Epoch [12/70] |	loss: 10.669874798506498 
+Train [1/11] | Epoch [13/70] |	loss: 10.289814192801714 
+Train [1/11] | Epoch [14/70] |	loss: 10.071539234369993 
+Train [1/11] | Epoch [15/70] |	loss: 9.858878646045923 
+Train [1/11] | Epoch [16/70] |	loss: 9.593069855123758 
+Train [1/11] | Epoch [17/70] |	loss: 9.411509860306978 
+Train [1/11] | Epoch [18/70] |	loss: 9.301159523427486 
+Train [1/11] | Epoch [19/70] |	loss: 9.157924041152 
+Train [1/11] | Epoch [20/70] |	loss: 8.970273856073618 
+Train [1/11] | Epoch [21/70] |	loss: 8.913862153887749 
+Train [1/11] | Epoch [22/70] |	loss: 8.79247136414051 
+Train [1/11] | Epoch [23/70] |	loss: 8.64991096034646 
+Train [1/11] | Epoch [24/70] |	loss: 8.581123027950525 
+Train [1/11] | Epoch [25/70] |	loss: 8.508012775331736 
+Train [1/11] | Epoch [26/70] |	loss: 8.443101771175861 
+Train [1/11] | Epoch [27/70] |	loss: 8.353701833635569 
+Train [1/11] | Epoch [28/70] |	loss: 8.368319481611252 
+Train [1/11] | Epoch [29/70] |	loss: 8.25769654661417 
+Train [1/11] | Epoch [30/70] |	loss: 8.20235662162304 
+Train [1/11] | Epoch [31/70] |	loss: 8.172603514045477 
+Train [1/11] | Epoch [32/70] |	loss: 8.096582692116499 
+Train [1/11] | Epoch [33/70] |	loss: 8.128067057579756 
+Train [1/11] | Epoch [34/70] |	loss: 8.045235637575388 
+Train [1/11] | Epoch [35/70] |	loss: 7.969612754881382 
+Train [1/11] | Epoch [36/70] |	loss: 8.033400941640139 
+Train [1/11] | Epoch [37/70] |	loss: 7.935637757182121 
+Train [1/11] | Epoch [38/70] |	loss: 7.869721166789532 
+Train [1/11] | Epoch [39/70] |	loss: 7.901519518345594 
+Train [1/11] | Epoch [40/70] |	loss: 7.86482997238636 
+Train [1/11] | Epoch [41/70] |	loss: 7.8856171406805515 
+Train [1/11] | Epoch [42/70] |	loss: 7.790419923141599 
+Train [1/11] | Epoch [43/70] |	loss: 7.800056789070368 
+Train [1/11] | Epoch [44/70] |	loss: 7.840136291459203 
+Train [1/11] | Epoch [45/70] |	loss: 7.7834475338459015 
+Train [1/11] | Epoch [46/70] |	loss: 7.715413153171539 
+Train [1/11] | Epoch [47/70] |	loss: 7.702056430280209 
+Train [1/11] | Epoch [48/70] |	loss: 7.789112515747547 
+Train [1/11] | Epoch [49/70] |	loss: 7.6423962675035 
+Train [1/11] | Epoch [50/70] |	loss: 7.6912351455539465 
+Train [1/11] | Epoch [51/70] |	loss: 5.785138795152307 
+Train [1/11] | Epoch [52/70] |	loss: 5.164337025955319 
+Train [1/11] | Epoch [53/70] |	loss: 4.958491273224354 
+Train [1/11] | Epoch [54/70] |	loss: 4.874905372038484 
+Train [1/11] | Epoch [55/70] |	loss: 4.794863710179925 
+Train [1/11] | Epoch [56/70] |	loss: 4.758640352636576 
+Train [1/11] | Epoch [57/70] |	loss: 4.690816104412079 
+Train [1/11] | Epoch [58/70] |	loss: 4.811711374670267 
+Train [1/11] | Epoch [59/70] |	loss: 4.758358299732208 
+Train [1/11] | Epoch [60/70] |	loss: 4.771048799157143 
+Train [1/11] | Epoch [61/70] |	loss: 4.730137364938855 
+Train [1/11] | Epoch [62/70] |	loss: 4.766649551689625 
+Train [1/11] | Epoch [63/70] |	loss: 4.72278686799109 
+Train [1/11] | Epoch [64/70] |	loss: 4.7593261413276196 
+Train [1/11] | Epoch [65/70] |	loss: 3.703996838070452 
+Train [1/11] | Epoch [66/70] |	loss: 3.352364143356681 
+Train [1/11] | Epoch [67/70] |	loss: 3.244066280312836 
+Train [1/11] | Epoch [68/70] |	loss: 3.1489896159619093 
+Train [1/11] | Epoch [69/70] |	loss: 3.1109062945470214 
+Train [1/11] | Epoch [70/70] |	loss: 3.015923038125038 
+after task
+Building & updating memory.
+after task
+Eval on 0->50.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.756.
+Current acc: {'total': 0.756, '00-09': 0.807, '10-19': 0.781, '20-29': 0.707, '30-39': 0.704, '40-49': 0.782}.
+Avg inc acc top5: 0.944.
+Current acc top5: {'total': 0.944}.
+Forgetting: 0.0.
+Cord metric: 0.76.
+================Task 1 Start!================
+Testing on False unseen tasks (max class = 55).
+Set memory of size: 2000.
+Before task
+Now 36 examplars per class.
+================Task 1 Training!================
+The training samples number: 4500
+Train on 50->55.
+train task
+nb 4500.
+Train [2/11] | Epoch [1/70] |	loss: 2.66963642090559 
+Train [2/11] | Epoch [2/70] |	loss: 2.444289844483137 
+Train [2/11] | Epoch [3/70] |	loss: 2.135699834674597 
+Train [2/11] | Epoch [4/70] |	loss: 1.9824794568121433 
+Train [2/11] | Epoch [5/70] |	loss: 1.9136995039880276 
+Train [2/11] | Epoch [6/70] |	loss: 1.8842346519231796 
+Train [2/11] | Epoch [7/70] |	loss: 1.9181425906717777 
+Train [2/11] | Epoch [8/70] |	loss: 1.8448160029947758 
+Train [2/11] | Epoch [9/70] |	loss: 1.7892023846507072 
+Train [2/11] | Epoch [10/70] |	loss: 1.8343011401593685 
+Train [2/11] | Epoch [11/70] |	loss: 1.829278513789177 
+Train [2/11] | Epoch [12/70] |	loss: 1.927392229437828 
+Train [2/11] | Epoch [13/70] |	loss: 1.8179823271930218 
+Train [2/11] | Epoch [14/70] |	loss: 1.7399495132267475 
+Train [2/11] | Epoch [15/70] |	loss: 1.7759373933076859 
+Train [2/11] | Epoch [16/70] |	loss: 1.8494129963219166 
+Train [2/11] | Epoch [17/70] |	loss: 1.7548849247395992 
+Train [2/11] | Epoch [18/70] |	loss: 1.7235483303666115 
+Train [2/11] | Epoch [19/70] |	loss: 1.741444543004036 
+Train [2/11] | Epoch [20/70] |	loss: 1.7663132771849632 
+Train [2/11] | Epoch [21/70] |	loss: 1.6965497210621834 
+Train [2/11] | Epoch [22/70] |	loss: 1.6604078263044357 
+Train [2/11] | Epoch [23/70] |	loss: 1.6794051080942154 
+Train [2/11] | Epoch [24/70] |	loss: 1.641251601278782 
+Train [2/11] | Epoch [25/70] |	loss: 1.6981229037046432 
+Train [2/11] | Epoch [26/70] |	loss: 1.6551188044250011 
+Train [2/11] | Epoch [27/70] |	loss: 1.764127030968666 
+Train [2/11] | Epoch [28/70] |	loss: 1.8114277347922325 
+Train [2/11] | Epoch [29/70] |	loss: 1.7257667854428291 
+Train [2/11] | Epoch [30/70] |	loss: 1.6427828893065453 
+Train [2/11] | Epoch [31/70] |	loss: 1.675075862556696 
+Train [2/11] | Epoch [32/70] |	loss: 1.6670520715415478 
+Train [2/11] | Epoch [33/70] |	loss: 1.7061519175767899 
+Train [2/11] | Epoch [34/70] |	loss: 1.629605669528246 
+Train [2/11] | Epoch [35/70] |	loss: 1.6670564971864223 
+Train [2/11] | Epoch [36/70] |	loss: 1.6869898848235607 
+Train [2/11] | Epoch [37/70] |	loss: 1.6459558084607124 
+Train [2/11] | Epoch [38/70] |	loss: 1.6679617501795292 
+Train [2/11] | Epoch [39/70] |	loss: 1.645205158740282 
+Train [2/11] | Epoch [40/70] |	loss: 1.7335807755589485 
+Train [2/11] | Epoch [41/70] |	loss: 1.6752941720187664 
+Train [2/11] | Epoch [42/70] |	loss: 1.712386354804039 
+Train [2/11] | Epoch [43/70] |	loss: 1.7797239311039448 
+Train [2/11] | Epoch [44/70] |	loss: 1.6342155113816261 
+Train [2/11] | Epoch [45/70] |	loss: 1.617108803242445 
+Train [2/11] | Epoch [46/70] |	loss: 1.6808165349066257 
+Train [2/11] | Epoch [47/70] |	loss: 1.707221057265997 
+Train [2/11] | Epoch [48/70] |	loss: 1.6268439255654812 
+Train [2/11] | Epoch [49/70] |	loss: 1.586167760193348 
+Train [2/11] | Epoch [50/70] |	loss: 1.5986028462648392 
+Train [2/11] | Epoch [51/70] |	loss: 1.4418760016560555 
+Train [2/11] | Epoch [52/70] |	loss: 1.338570598512888 
+Train [2/11] | Epoch [53/70] |	loss: 1.295097891241312 
+Train [2/11] | Epoch [54/70] |	loss: 1.2784732095897198 
+Train [2/11] | Epoch [55/70] |	loss: 1.277601446956396 
+Train [2/11] | Epoch [56/70] |	loss: 1.2595307026058435 
+Train [2/11] | Epoch [57/70] |	loss: 1.25927590765059 
+Train [2/11] | Epoch [58/70] |	loss: 1.2484752908349037 
+Train [2/11] | Epoch [59/70] |	loss: 1.245696159079671 
+Train [2/11] | Epoch [60/70] |	loss: 1.2289578076452017 
+Train [2/11] | Epoch [61/70] |	loss: 1.250144086778164 
+Train [2/11] | Epoch [62/70] |	loss: 1.2344379052519798 
+Train [2/11] | Epoch [63/70] |	loss: 1.2409126684069633 
+Train [2/11] | Epoch [64/70] |	loss: 1.2395807597786188 
+Train [2/11] | Epoch [65/70] |	loss: 1.2145723905414343 
+Train [2/11] | Epoch [66/70] |	loss: 1.2106412537395954 
+Train [2/11] | Epoch [67/70] |	loss: 1.205274149775505 
+Train [2/11] | Epoch [68/70] |	loss: 1.1893382761627436 
+Train [2/11] | Epoch [69/70] |	loss: 1.187085047364235 
+Train [2/11] | Epoch [70/70] |	loss: 1.184201080352068 
+after task
+Building & updating memory.
+after task
+Eval on 0->55.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.7130000000000001.
+Current acc: {'total': 0.67, '00-09': 0.72, '10-19': 0.649, '20-29': 0.605, '30-39': 0.608, '40-49': 0.711, '50-59': 0.782}.
+Avg inc acc top5: 0.9259999999999999.
+Current acc top5: {'total': 0.908}.
+Forgetting: -0.04199999999999999.
+Cord metric: 0.71.
+Old accuracy: 0.66, mean: 0.66.
+New accuracy: 0.78, mean: 0.78.
+================Task 2 Start!================
+Testing on False unseen tasks (max class = 60).
+Set memory of size: 1980.
+Before task
+Now 33 examplars per class.
+================Task 2 Training!================
+The training samples number: 4480
+Train on 55->60.
+train task
+nb 4480.
+Train [3/11] | Epoch [1/70] |	loss: 2.556152328848839 
+Train [3/11] | Epoch [2/70] |	loss: 1.9806676842272282 
+Train [3/11] | Epoch [3/70] |	loss: 1.9108768999576569 
+Train [3/11] | Epoch [4/70] |	loss: 1.872527338564396 
+Train [3/11] | Epoch [5/70] |	loss: 1.8450892753899097 
+Train [3/11] | Epoch [6/70] |	loss: 1.84357226267457 
+Train [3/11] | Epoch [7/70] |	loss: 1.8333237953484058 
+Train [3/11] | Epoch [8/70] |	loss: 1.8361726365983486 
+Train [3/11] | Epoch [9/70] |	loss: 1.7975877150893211 
+Train [3/11] | Epoch [10/70] |	loss: 1.8120768442749977 
+Train [3/11] | Epoch [11/70] |	loss: 1.831410951912403 
+Train [3/11] | Epoch [12/70] |	loss: 1.8062353432178497 
+Train [3/11] | Epoch [13/70] |	loss: 1.8016472198069096 
+Train [3/11] | Epoch [14/70] |	loss: 1.8097783252596855 
+Train [3/11] | Epoch [15/70] |	loss: 1.7998692132532597 
+Train [3/11] | Epoch [16/70] |	loss: 1.8047675527632236 
+Train [3/11] | Epoch [17/70] |	loss: 1.8022038079798222 
+Train [3/11] | Epoch [18/70] |	loss: 1.8009703867137432 
+Train [3/11] | Epoch [19/70] |	loss: 1.8090880997478962 
+Train [3/11] | Epoch [20/70] |	loss: 1.8167534917593002 
+Train [3/11] | Epoch [21/70] |	loss: 1.8082966916263103 
+Train [3/11] | Epoch [22/70] |	loss: 1.7926312424242496 
+Train [3/11] | Epoch [23/70] |	loss: 1.787804715335369 
+Train [3/11] | Epoch [24/70] |	loss: 1.7808702737092972 
+Train [3/11] | Epoch [25/70] |	loss: 1.78881498798728 
+Train [3/11] | Epoch [26/70] |	loss: 1.814811561256647 
+Train [3/11] | Epoch [27/70] |	loss: 1.7936723157763481 
+Train [3/11] | Epoch [28/70] |	loss: 1.7734769582748413 
+Train [3/11] | Epoch [29/70] |	loss: 1.7904802337288857 
+Train [3/11] | Epoch [30/70] |	loss: 1.7825465649366379 
+Train [3/11] | Epoch [31/70] |	loss: 1.807396300137043 
+Train [3/11] | Epoch [32/70] |	loss: 1.79306810349226 
+Train [3/11] | Epoch [33/70] |	loss: 1.75759931281209 
+Train [3/11] | Epoch [34/70] |	loss: 1.7539124563336372 
+Train [3/11] | Epoch [35/70] |	loss: 1.7624211609363556 
+Train [3/11] | Epoch [36/70] |	loss: 1.7896619774401188 
+Train [3/11] | Epoch [37/70] |	loss: 1.7746784016489983 
+Train [3/11] | Epoch [38/70] |	loss: 1.7722774930298328 
+Train [3/11] | Epoch [39/70] |	loss: 1.7744009606540203 
+Train [3/11] | Epoch [40/70] |	loss: 1.788727544248104 
+Train [3/11] | Epoch [41/70] |	loss: 1.7959733419120312 
+Train [3/11] | Epoch [42/70] |	loss: 1.7952406331896782 
+Train [3/11] | Epoch [43/70] |	loss: 1.777513261884451 
+Train [3/11] | Epoch [44/70] |	loss: 1.7756622284650803 
+Train [3/11] | Epoch [45/70] |	loss: 1.7957195155322552 
+Train [3/11] | Epoch [46/70] |	loss: 1.759376149624586 
+Train [3/11] | Epoch [47/70] |	loss: 1.7464559152722359 
+Train [3/11] | Epoch [48/70] |	loss: 1.7804517708718777 
+Train [3/11] | Epoch [49/70] |	loss: 1.803179170936346 
+Train [3/11] | Epoch [50/70] |	loss: 1.7738489583134651 
+Train [3/11] | Epoch [51/70] |	loss: 1.6428854949772358 
+Train [3/11] | Epoch [52/70] |	loss: 1.5694625563919544 
+Train [3/11] | Epoch [53/70] |	loss: 1.5493461638689041 
+Train [3/11] | Epoch [54/70] |	loss: 1.5259460806846619 
+Train [3/11] | Epoch [55/70] |	loss: 1.5281058922410011 
+Train [3/11] | Epoch [56/70] |	loss: 1.5219923369586468 
+Train [3/11] | Epoch [57/70] |	loss: 1.5201243497431278 
+Train [3/11] | Epoch [58/70] |	loss: 1.5074475891888142 
+Train [3/11] | Epoch [59/70] |	loss: 1.510533843189478 
+Train [3/11] | Epoch [60/70] |	loss: 1.5052788890898228 
+Train [3/11] | Epoch [61/70] |	loss: 1.4980726949870586 
+Train [3/11] | Epoch [62/70] |	loss: 1.495811928063631 
+Train [3/11] | Epoch [63/70] |	loss: 1.4992065578699112 
+Train [3/11] | Epoch [64/70] |	loss: 1.4892357550561428 
+Train [3/11] | Epoch [65/70] |	loss: 1.4802308641374111 
+Train [3/11] | Epoch [66/70] |	loss: 1.472441203892231 
+Train [3/11] | Epoch [67/70] |	loss: 1.4771936535835266 
+Train [3/11] | Epoch [68/70] |	loss: 1.4764491356909275 
+Train [3/11] | Epoch [69/70] |	loss: 1.4723905436694622 
+Train [3/11] | Epoch [70/70] |	loss: 1.4791325256228447 
+after task
+Building & updating memory.
+after task
+Eval on 0->60.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.6916666666666668.
+Current acc: {'total': 0.649, '00-09': 0.693, '10-19': 0.648, '20-29': 0.583, '30-39': 0.548, '40-49': 0.667, '50-59': 0.755}.
+Avg inc acc top5: 0.9166666666666666.
+Current acc top5: {'total': 0.898}.
+Forgetting: 0.09557142857142857.
+Cord metric: 0.70.
+Old accuracy: 0.63, mean: 0.65.
+New accuracy: 0.82, mean: 0.80.
+================Task 3 Start!================
+Testing on False unseen tasks (max class = 65).
+Set memory of size: 1980.
+Before task
+Now 30 examplars per class.
+================Task 3 Training!================
+The training samples number: 4480
+Train on 60->65.
+train task
+nb 4480.
+Train [4/11] | Epoch [1/70] |	loss: 2.805276446044445 
+Train [4/11] | Epoch [2/70] |	loss: 2.3679530434310436 
+Train [4/11] | Epoch [3/70] |	loss: 2.250365026295185 
+Train [4/11] | Epoch [4/70] |	loss: 2.2214154936373234 
+Train [4/11] | Epoch [5/70] |	loss: 2.1941337063908577 
+Train [4/11] | Epoch [6/70] |	loss: 2.189626693725586 
+Train [4/11] | Epoch [7/70] |	loss: 2.1489958502352238 
+Train [4/11] | Epoch [8/70] |	loss: 2.157456010580063 
+Train [4/11] | Epoch [9/70] |	loss: 2.1268992237746716 
+Train [4/11] | Epoch [10/70] |	loss: 2.121940638870001 
+Train [4/11] | Epoch [11/70] |	loss: 2.1318727396428585 
+Train [4/11] | Epoch [12/70] |	loss: 2.1224345341324806 
+Train [4/11] | Epoch [13/70] |	loss: 2.1314693354070187 
+Train [4/11] | Epoch [14/70] |	loss: 2.1175570748746395 
+Train [4/11] | Epoch [15/70] |	loss: 2.072070460766554 
+Train [4/11] | Epoch [16/70] |	loss: 2.06471536308527 
+Train [4/11] | Epoch [17/70] |	loss: 2.0938057750463486 
+Train [4/11] | Epoch [18/70] |	loss: 2.063328493386507 
+Train [4/11] | Epoch [19/70] |	loss: 2.0750634260475636 
+Train [4/11] | Epoch [20/70] |	loss: 2.047560539096594 
+Train [4/11] | Epoch [21/70] |	loss: 2.0609615594148636 
+Train [4/11] | Epoch [22/70] |	loss: 2.0709102787077427 
+Train [4/11] | Epoch [23/70] |	loss: 2.0366854667663574 
+Train [4/11] | Epoch [24/70] |	loss: 2.092090416699648 
+Train [4/11] | Epoch [25/70] |	loss: 2.0682388842105865 
+Train [4/11] | Epoch [26/70] |	loss: 2.0344272777438164 
+Train [4/11] | Epoch [27/70] |	loss: 2.014332827180624 
+Train [4/11] | Epoch [28/70] |	loss: 2.0459129139781 
+Train [4/11] | Epoch [29/70] |	loss: 2.0263848900794983 
+Train [4/11] | Epoch [30/70] |	loss: 2.05322190746665 
+Train [4/11] | Epoch [31/70] |	loss: 2.0393740236759186 
+Train [4/11] | Epoch [32/70] |	loss: 2.009870495647192 
+Train [4/11] | Epoch [33/70] |	loss: 1.9932700097560883 
+Train [4/11] | Epoch [34/70] |	loss: 2.04854504019022 
+Train [4/11] | Epoch [35/70] |	loss: 2.009614273905754 
+Train [4/11] | Epoch [36/70] |	loss: 2.0219107195734978 
+Train [4/11] | Epoch [37/70] |	loss: 2.0217663906514645 
+Train [4/11] | Epoch [38/70] |	loss: 2.0210976600646973 
+Train [4/11] | Epoch [39/70] |	loss: 2.024215418845415 
+Train [4/11] | Epoch [40/70] |	loss: 2.002038288861513 
+Train [4/11] | Epoch [41/70] |	loss: 1.9996409341692924 
+Train [4/11] | Epoch [42/70] |	loss: 2.025050774216652 
+Train [4/11] | Epoch [43/70] |	loss: 2.0381580106914043 
+Train [4/11] | Epoch [44/70] |	loss: 2.0292760245501995 
+Train [4/11] | Epoch [45/70] |	loss: 2.016203574836254 
+Train [4/11] | Epoch [46/70] |	loss: 1.9895519651472569 
+Train [4/11] | Epoch [47/70] |	loss: 1.9955538399517536 
+Train [4/11] | Epoch [48/70] |	loss: 1.985640250146389 
+Train [4/11] | Epoch [49/70] |	loss: 2.0104084350168705 
+Train [4/11] | Epoch [50/70] |	loss: 2.009911011904478 
+Train [4/11] | Epoch [51/70] |	loss: 1.8537165895104408 
+Train [4/11] | Epoch [52/70] |	loss: 1.7679587341845036 
+Train [4/11] | Epoch [53/70] |	loss: 1.7315584421157837 
+Train [4/11] | Epoch [54/70] |	loss: 1.7109735906124115 
+Train [4/11] | Epoch [55/70] |	loss: 1.7112846858799458 
+Train [4/11] | Epoch [56/70] |	loss: 1.700847513973713 
+Train [4/11] | Epoch [57/70] |	loss: 1.6893175952136517 
+Train [4/11] | Epoch [58/70] |	loss: 1.6840033568441868 
+Train [4/11] | Epoch [59/70] |	loss: 1.6771520636975765 
+Train [4/11] | Epoch [60/70] |	loss: 1.6750830970704556 
+Train [4/11] | Epoch [61/70] |	loss: 1.670877106487751 
+Train [4/11] | Epoch [62/70] |	loss: 1.671828556805849 
+Train [4/11] | Epoch [63/70] |	loss: 1.6730019859969616 
+Train [4/11] | Epoch [64/70] |	loss: 1.6667937375605106 
+Train [4/11] | Epoch [65/70] |	loss: 1.6523528508841991 
+Train [4/11] | Epoch [66/70] |	loss: 1.6464531123638153 
+Train [4/11] | Epoch [67/70] |	loss: 1.650598168373108 
+Train [4/11] | Epoch [68/70] |	loss: 1.6405663043260574 
+Train [4/11] | Epoch [69/70] |	loss: 1.639965444803238 
+Train [4/11] | Epoch [70/70] |	loss: 1.639928873628378 
+after task
+Building & updating memory.
+after task
+Eval on 0->65.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.6707500000000001.
+Current acc: {'total': 0.608, '00-09': 0.666, '10-19': 0.611, '20-29': 0.532, '30-39': 0.502, '40-49': 0.627, '50-59': 0.694, '60-69': 0.642}.
+Avg inc acc top5: 0.9047499999999999.
+Current acc top5: {'total': 0.869}.
+Forgetting: 0.036125000000000004.
+Cord metric: 0.67.
+Old accuracy: 0.60, mean: 0.63.
+New accuracy: 0.64, mean: 0.75.
+================Task 4 Start!================
+Testing on False unseen tasks (max class = 70).
+Set memory of size: 1950.
+Before task
+Now 28 examplars per class.
+================Task 4 Training!================
+The training samples number: 4450
+Train on 65->70.
+train task
+nb 4450.
+Train [5/11] | Epoch [1/70] |	loss: 2.658933609724045 
+Train [5/11] | Epoch [2/70] |	loss: 2.3309763744473457 
+Train [5/11] | Epoch [3/70] |	loss: 2.3025717921555042 
+Train [5/11] | Epoch [4/70] |	loss: 2.2529995255172253 
+Train [5/11] | Epoch [5/70] |	loss: 2.2486429549753666 
+Train [5/11] | Epoch [6/70] |	loss: 2.288542527705431 
+Train [5/11] | Epoch [7/70] |	loss: 2.257157925516367 
+Train [5/11] | Epoch [8/70] |	loss: 2.242779091000557 
+Train [5/11] | Epoch [9/70] |	loss: 2.226495921611786 
+Train [5/11] | Epoch [10/70] |	loss: 2.2020400650799274 
+Train [5/11] | Epoch [11/70] |	loss: 2.2077608965337276 
+Train [5/11] | Epoch [12/70] |	loss: 2.1959063448011875 
+Train [5/11] | Epoch [13/70] |	loss: 2.142460312694311 
+Train [5/11] | Epoch [14/70] |	loss: 2.1883813329041004 
+Train [5/11] | Epoch [15/70] |	loss: 2.2079729326069355 
+Train [5/11] | Epoch [16/70] |	loss: 2.185961991548538 
+Train [5/11] | Epoch [17/70] |	loss: 2.177020102739334 
+Train [5/11] | Epoch [18/70] |	loss: 2.1823764219880104 
+Train [5/11] | Epoch [19/70] |	loss: 2.16687136515975 
+Train [5/11] | Epoch [20/70] |	loss: 2.1692144870758057 
+Train [5/11] | Epoch [21/70] |	loss: 2.1716723404824734 
+Train [5/11] | Epoch [22/70] |	loss: 2.1695310175418854 
+Train [5/11] | Epoch [23/70] |	loss: 2.137346528470516 
+Train [5/11] | Epoch [24/70] |	loss: 2.1467560157179832 
+Train [5/11] | Epoch [25/70] |	loss: 2.145294710993767 
+Train [5/11] | Epoch [26/70] |	loss: 2.148539625108242 
+Train [5/11] | Epoch [27/70] |	loss: 2.1623920015990734 
+Train [5/11] | Epoch [28/70] |	loss: 2.1534605845808983 
+Train [5/11] | Epoch [29/70] |	loss: 2.149481888860464 
+Train [5/11] | Epoch [30/70] |	loss: 2.135078504681587 
+Train [5/11] | Epoch [31/70] |	loss: 2.1245753951370716 
+Train [5/11] | Epoch [32/70] |	loss: 2.1455592215061188 
+Train [5/11] | Epoch [33/70] |	loss: 2.1328796856105328 
+Train [5/11] | Epoch [34/70] |	loss: 2.145784180611372 
+Train [5/11] | Epoch [35/70] |	loss: 2.126799698919058 
+Train [5/11] | Epoch [36/70] |	loss: 2.127036575227976 
+Train [5/11] | Epoch [37/70] |	loss: 2.1369091011583805 
+Train [5/11] | Epoch [38/70] |	loss: 2.1230163611471653 
+Train [5/11] | Epoch [39/70] |	loss: 2.104543250054121 
+Train [5/11] | Epoch [40/70] |	loss: 2.1429314613342285 
+Train [5/11] | Epoch [41/70] |	loss: 2.152145467698574 
+Train [5/11] | Epoch [42/70] |	loss: 2.125177498906851 
+Train [5/11] | Epoch [43/70] |	loss: 2.1119981296360493 
+Train [5/11] | Epoch [44/70] |	loss: 2.1196173429489136 
+Train [5/11] | Epoch [45/70] |	loss: 2.1121264286339283 
+Train [5/11] | Epoch [46/70] |	loss: 2.1165840923786163 
+Train [5/11] | Epoch [47/70] |	loss: 2.1342577263712883 
+Train [5/11] | Epoch [48/70] |	loss: 2.1277134343981743 
+Train [5/11] | Epoch [49/70] |	loss: 2.148920588195324 
+Train [5/11] | Epoch [50/70] |	loss: 2.1603491753339767 
+Train [5/11] | Epoch [51/70] |	loss: 2.010666251182556 
+Train [5/11] | Epoch [52/70] |	loss: 1.9130320511758327 
+Train [5/11] | Epoch [53/70] |	loss: 1.8942517898976803 
+Train [5/11] | Epoch [54/70] |	loss: 1.8816404901444912 
+Train [5/11] | Epoch [55/70] |	loss: 1.8708954229950905 
+Train [5/11] | Epoch [56/70] |	loss: 1.865111816674471 
+Train [5/11] | Epoch [57/70] |	loss: 1.863033089786768 
+Train [5/11] | Epoch [58/70] |	loss: 1.8545460775494576 
+Train [5/11] | Epoch [59/70] |	loss: 1.8582060411572456 
+Train [5/11] | Epoch [60/70] |	loss: 1.854547768831253 
+Train [5/11] | Epoch [61/70] |	loss: 1.8355959467589855 
+Train [5/11] | Epoch [62/70] |	loss: 1.8350159265100956 
+Train [5/11] | Epoch [63/70] |	loss: 1.8414058797061443 
+Train [5/11] | Epoch [64/70] |	loss: 1.8364784754812717 
+Train [5/11] | Epoch [65/70] |	loss: 1.8248209245502949 
+Train [5/11] | Epoch [66/70] |	loss: 1.8266420103609562 
+Train [5/11] | Epoch [67/70] |	loss: 1.8241905719041824 
+Train [5/11] | Epoch [68/70] |	loss: 1.8214188553392887 
+Train [5/11] | Epoch [69/70] |	loss: 1.8235494270920753 
+Train [5/11] | Epoch [70/70] |	loss: 1.8201618194580078 
+after task
+Building & updating memory.
+after task
+Eval on 0->70.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.6540000000000001.
+Current acc: {'total': 0.587, '00-09': 0.643, '10-19': 0.591, '20-29': 0.525, '30-39': 0.495, '40-49': 0.626, '50-59': 0.629, '60-69': 0.598}.
+Avg inc acc top5: 0.8937999999999999.
+Current acc top5: {'total': 0.85}.
+Forgetting: 0.13725.
+Cord metric: 0.65.
+Old accuracy: 0.58, mean: 0.62.
+New accuracy: 0.71, mean: 0.74.
+================Task 5 Start!================
+Testing on False unseen tasks (max class = 75).
+Set memory of size: 1960.
+Before task
+Now 26 examplars per class.
+================Task 5 Training!================
+The training samples number: 4460
+Train on 70->75.
+train task
+nb 4460.
+Train [6/11] | Epoch [1/70] |	loss: 2.6488765701651573 
+Train [6/11] | Epoch [2/70] |	loss: 2.3154980838298798 
+Train [6/11] | Epoch [3/70] |	loss: 2.220580544322729 
+Train [6/11] | Epoch [4/70] |	loss: 2.1940097250044346 
+Train [6/11] | Epoch [5/70] |	loss: 2.1940947957336903 
+Train [6/11] | Epoch [6/70] |	loss: 2.1889358311891556 
+Train [6/11] | Epoch [7/70] |	loss: 2.177950154989958 
+Train [6/11] | Epoch [8/70] |	loss: 2.166346997022629 
+Train [6/11] | Epoch [9/70] |	loss: 2.1739701479673386 
+Train [6/11] | Epoch [10/70] |	loss: 2.162072639912367 
+Train [6/11] | Epoch [11/70] |	loss: 2.1676139049232006 
+Train [6/11] | Epoch [12/70] |	loss: 2.1554689072072506 
+Train [6/11] | Epoch [13/70] |	loss: 2.144403036683798 
+Train [6/11] | Epoch [14/70] |	loss: 2.1396909169852734 
+Train [6/11] | Epoch [15/70] |	loss: 2.1316164657473564 
+Train [6/11] | Epoch [16/70] |	loss: 2.1380268670618534 
+Train [6/11] | Epoch [17/70] |	loss: 2.16427543759346 
+Train [6/11] | Epoch [18/70] |	loss: 2.1561285853385925 
+Train [6/11] | Epoch [19/70] |	loss: 2.13126428052783 
+Train [6/11] | Epoch [20/70] |	loss: 2.118044935166836 
+Train [6/11] | Epoch [21/70] |	loss: 2.1191524900496006 
+Train [6/11] | Epoch [22/70] |	loss: 2.132957648485899 
+Train [6/11] | Epoch [23/70] |	loss: 2.1521762683987617 
+Train [6/11] | Epoch [24/70] |	loss: 2.1309848986566067 
+Train [6/11] | Epoch [25/70] |	loss: 2.1518761105835438 
+Train [6/11] | Epoch [26/70] |	loss: 2.1205832213163376 
+Train [6/11] | Epoch [27/70] |	loss: 2.104691904038191 
+Train [6/11] | Epoch [28/70] |	loss: 2.1309578381478786 
+Train [6/11] | Epoch [29/70] |	loss: 2.136313769966364 
+Train [6/11] | Epoch [30/70] |	loss: 2.1058827452361584 
+Train [6/11] | Epoch [31/70] |	loss: 2.1221149936318398 
+Train [6/11] | Epoch [32/70] |	loss: 2.1081816405057907 
+Train [6/11] | Epoch [33/70] |	loss: 2.150497082620859 
+Train [6/11] | Epoch [34/70] |	loss: 2.1235906928777695 
+Train [6/11] | Epoch [35/70] |	loss: 2.1100520193576813 
+Train [6/11] | Epoch [36/70] |	loss: 2.114579141139984 
+Train [6/11] | Epoch [37/70] |	loss: 2.1053262911736965 
+Train [6/11] | Epoch [38/70] |	loss: 2.1032032929360867 
+Train [6/11] | Epoch [39/70] |	loss: 2.106270257383585 
+Train [6/11] | Epoch [40/70] |	loss: 2.114781230688095 
+Train [6/11] | Epoch [41/70] |	loss: 2.1306130178272724 
+Train [6/11] | Epoch [42/70] |	loss: 2.117370270192623 
+Train [6/11] | Epoch [43/70] |	loss: 2.1027141846716404 
+Train [6/11] | Epoch [44/70] |	loss: 2.074965212494135 
+Train [6/11] | Epoch [45/70] |	loss: 2.1079069189727306 
+Train [6/11] | Epoch [46/70] |	loss: 2.1140450686216354 
+Train [6/11] | Epoch [47/70] |	loss: 2.1243170499801636 
+Train [6/11] | Epoch [48/70] |	loss: 2.111980326473713 
+Train [6/11] | Epoch [49/70] |	loss: 2.1208624094724655 
+Train [6/11] | Epoch [50/70] |	loss: 2.1045562960207462 
+Train [6/11] | Epoch [51/70] |	loss: 1.9964652135968208 
+Train [6/11] | Epoch [52/70] |	loss: 1.934070985764265 
+Train [6/11] | Epoch [53/70] |	loss: 1.9244393445551395 
+Train [6/11] | Epoch [54/70] |	loss: 1.9082631170749664 
+Train [6/11] | Epoch [55/70] |	loss: 1.9062665663659573 
+Train [6/11] | Epoch [56/70] |	loss: 1.9059842489659786 
+Train [6/11] | Epoch [57/70] |	loss: 1.8995733819901943 
+Train [6/11] | Epoch [58/70] |	loss: 1.8942298702895641 
+Train [6/11] | Epoch [59/70] |	loss: 1.8940018601715565 
+Train [6/11] | Epoch [60/70] |	loss: 1.8832329213619232 
+Train [6/11] | Epoch [61/70] |	loss: 1.885150607675314 
+Train [6/11] | Epoch [62/70] |	loss: 1.8822787925601006 
+Train [6/11] | Epoch [63/70] |	loss: 1.8740621730685234 
+Train [6/11] | Epoch [64/70] |	loss: 1.8767556510865688 
+Train [6/11] | Epoch [65/70] |	loss: 1.8657355904579163 
+Train [6/11] | Epoch [66/70] |	loss: 1.8715179897844791 
+Train [6/11] | Epoch [67/70] |	loss: 1.8662193641066551 
+Train [6/11] | Epoch [68/70] |	loss: 1.8631005436182022 
+Train [6/11] | Epoch [69/70] |	loss: 1.8657753728330135 
+Train [6/11] | Epoch [70/70] |	loss: 1.8685261271893978 
+after task
+Building & updating memory.
+after task
+Eval on 0->75.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.6398333333333334.
+Current acc: {'total': 0.569, '00-09': 0.627, '10-19': 0.564, '20-29': 0.493, '30-39': 0.473, '40-49': 0.597, '50-59': 0.62, '60-69': 0.501, '70-79': 0.782}.
+Avg inc acc top5: 0.8856666666666665.
+Current acc top5: {'total': 0.845}.
+Forgetting: 0.060888888888888895.
+Cord metric: 0.64.
+Old accuracy: 0.55, mean: 0.61.
+New accuracy: 0.78, mean: 0.75.
+================Task 6 Start!================
+Testing on False unseen tasks (max class = 80).
+Set memory of size: 1950.
+Before task
+Now 25 examplars per class.
+================Task 6 Training!================
+The training samples number: 4450
+Train on 75->80.
+train task
+nb 4450.
+Train [7/11] | Epoch [1/70] |	loss: 2.7388773187994957 
+Train [7/11] | Epoch [2/70] |	loss: 2.4840124621987343 
+Train [7/11] | Epoch [3/70] |	loss: 2.4373329281806946 
+Train [7/11] | Epoch [4/70] |	loss: 2.4011043310165405 
+Train [7/11] | Epoch [5/70] |	loss: 2.4137366116046906 
+Train [7/11] | Epoch [6/70] |	loss: 2.4002649933099747 
+Train [7/11] | Epoch [7/70] |	loss: 2.3791656345129013 
+Train [7/11] | Epoch [8/70] |	loss: 2.3677900284528732 
+Train [7/11] | Epoch [9/70] |	loss: 2.3656135499477386 
+Train [7/11] | Epoch [10/70] |	loss: 2.366621144115925 
+Train [7/11] | Epoch [11/70] |	loss: 2.3669171556830406 
+Train [7/11] | Epoch [12/70] |	loss: 2.346661187708378 
+Train [7/11] | Epoch [13/70] |	loss: 2.332113489508629 
+Train [7/11] | Epoch [14/70] |	loss: 2.3191682621836662 
+Train [7/11] | Epoch [15/70] |	loss: 2.32334341481328 
+Train [7/11] | Epoch [16/70] |	loss: 2.3587927371263504 
+Train [7/11] | Epoch [17/70] |	loss: 2.36487178504467 
+Train [7/11] | Epoch [18/70] |	loss: 2.322481945157051 
+Train [7/11] | Epoch [19/70] |	loss: 2.3183893486857414 
+Train [7/11] | Epoch [20/70] |	loss: 2.32319625467062 
+Train [7/11] | Epoch [21/70] |	loss: 2.3337417617440224 
+Train [7/11] | Epoch [22/70] |	loss: 2.334928475320339 
+Train [7/11] | Epoch [23/70] |	loss: 2.3156855180859566 
+Train [7/11] | Epoch [24/70] |	loss: 2.2975706085562706 
+Train [7/11] | Epoch [25/70] |	loss: 2.2962169274687767 
+Train [7/11] | Epoch [26/70] |	loss: 2.3012386485934258 
+Train [7/11] | Epoch [27/70] |	loss: 2.3103683665394783 
+Train [7/11] | Epoch [28/70] |	loss: 2.3084855675697327 
+Train [7/11] | Epoch [29/70] |	loss: 2.2999614030122757 
+Train [7/11] | Epoch [30/70] |	loss: 2.2816560193896294 
+Train [7/11] | Epoch [31/70] |	loss: 2.3001185208559036 
+Train [7/11] | Epoch [32/70] |	loss: 2.303521890193224 
+Train [7/11] | Epoch [33/70] |	loss: 2.3134652376174927 
+Train [7/11] | Epoch [34/70] |	loss: 2.299325481057167 
+Train [7/11] | Epoch [35/70] |	loss: 2.299157477915287 
+Train [7/11] | Epoch [36/70] |	loss: 2.307887628674507 
+Train [7/11] | Epoch [37/70] |	loss: 2.3202056102454662 
+Train [7/11] | Epoch [38/70] |	loss: 2.3233636766672134 
+Train [7/11] | Epoch [39/70] |	loss: 2.307392805814743 
+Train [7/11] | Epoch [40/70] |	loss: 2.2832306548953056 
+Train [7/11] | Epoch [41/70] |	loss: 2.295806337147951 
+Train [7/11] | Epoch [42/70] |	loss: 2.2938502803444862 
+Train [7/11] | Epoch [43/70] |	loss: 2.296288561075926 
+Train [7/11] | Epoch [44/70] |	loss: 2.263350125402212 
+Train [7/11] | Epoch [45/70] |	loss: 2.265258301049471 
+Train [7/11] | Epoch [46/70] |	loss: 2.285981323570013 
+Train [7/11] | Epoch [47/70] |	loss: 2.274976946413517 
+Train [7/11] | Epoch [48/70] |	loss: 2.2879527658224106 
+Train [7/11] | Epoch [49/70] |	loss: 2.2802602276206017 
+Train [7/11] | Epoch [50/70] |	loss: 2.2991182804107666 
+Train [7/11] | Epoch [51/70] |	loss: 2.188764553517103 
+Train [7/11] | Epoch [52/70] |	loss: 2.1316839158535004 
+Train [7/11] | Epoch [53/70] |	loss: 2.1050437316298485 
+Train [7/11] | Epoch [54/70] |	loss: 2.099528383463621 
+Train [7/11] | Epoch [55/70] |	loss: 2.09468699619174 
+Train [7/11] | Epoch [56/70] |	loss: 2.0829047672450542 
+Train [7/11] | Epoch [57/70] |	loss: 2.080627426505089 
+Train [7/11] | Epoch [58/70] |	loss: 2.078793790191412 
+Train [7/11] | Epoch [59/70] |	loss: 2.0793180353939533 
+Train [7/11] | Epoch [60/70] |	loss: 2.069263517856598 
+Train [7/11] | Epoch [61/70] |	loss: 2.0760471634566784 
+Train [7/11] | Epoch [62/70] |	loss: 2.0655026994645596 
+Train [7/11] | Epoch [63/70] |	loss: 2.0607637502253056 
+Train [7/11] | Epoch [64/70] |	loss: 2.065627131611109 
+Train [7/11] | Epoch [65/70] |	loss: 2.0586322247982025 
+Train [7/11] | Epoch [66/70] |	loss: 2.0514535568654537 
+Train [7/11] | Epoch [67/70] |	loss: 2.047957058995962 
+Train [7/11] | Epoch [68/70] |	loss: 2.050503507256508 
+Train [7/11] | Epoch [69/70] |	loss: 2.0577807761728764 
+Train [7/11] | Epoch [70/70] |	loss: 2.0509373135864735 
+after task
+Building & updating memory.
+after task
+Eval on 0->80.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.6267142857142858.
+Current acc: {'total': 0.548, '00-09': 0.598, '10-19': 0.558, '20-29': 0.449, '30-39': 0.451, '40-49': 0.56, '50-59': 0.616, '60-69': 0.477, '70-79': 0.676}.
+Avg inc acc top5: 0.877142857142857.
+Current acc top5: {'total': 0.826}.
+Forgetting: 0.178.
+Cord metric: 0.62.
+Old accuracy: 0.54, mean: 0.59.
+New accuracy: 0.70, mean: 0.74.
+================Task 7 Start!================
+Testing on False unseen tasks (max class = 85).
+Set memory of size: 2000.
+Before task
+Now 23 examplars per class.
+================Task 7 Training!================
+The training samples number: 4500
+Train on 80->85.
+train task
+nb 4500.
+Train [8/11] | Epoch [1/70] |	loss: 2.9276804849505424 
+Train [8/11] | Epoch [2/70] |	loss: 2.6591004356741905 
+Train [8/11] | Epoch [3/70] |	loss: 2.5952877327799797 
+Train [8/11] | Epoch [4/70] |	loss: 2.577574424445629 
+Train [8/11] | Epoch [5/70] |	loss: 2.558664806187153 
+Train [8/11] | Epoch [6/70] |	loss: 2.5427074879407883 
+Train [8/11] | Epoch [7/70] |	loss: 2.54287813603878 
+Train [8/11] | Epoch [8/70] |	loss: 2.522193267941475 
+Train [8/11] | Epoch [9/70] |	loss: 2.540261246263981 
+Train [8/11] | Epoch [10/70] |	loss: 2.523945063352585 
+Train [8/11] | Epoch [11/70] |	loss: 2.5134428068995476 
+Train [8/11] | Epoch [12/70] |	loss: 2.512871690094471 
+Train [8/11] | Epoch [13/70] |	loss: 2.5000864267349243 
+Train [8/11] | Epoch [14/70] |	loss: 2.509634353220463 
+Train [8/11] | Epoch [15/70] |	loss: 2.4885999113321304 
+Train [8/11] | Epoch [16/70] |	loss: 2.485777698457241 
+Train [8/11] | Epoch [17/70] |	loss: 2.5556680634617805 
+Train [8/11] | Epoch [18/70] |	loss: 2.515120968222618 
+Train [8/11] | Epoch [19/70] |	loss: 2.4930346608161926 
+Train [8/11] | Epoch [20/70] |	loss: 2.5021460875868797 
+Train [8/11] | Epoch [21/70] |	loss: 2.4903856590390205 
+Train [8/11] | Epoch [22/70] |	loss: 2.5142203271389008 
+Train [8/11] | Epoch [23/70] |	loss: 2.545027978718281 
+Train [8/11] | Epoch [24/70] |	loss: 2.5204882249236107 
+Train [8/11] | Epoch [25/70] |	loss: 2.4728263914585114 
+Train [8/11] | Epoch [26/70] |	loss: 2.50422889739275 
+Train [8/11] | Epoch [27/70] |	loss: 2.4719089418649673 
+Train [8/11] | Epoch [28/70] |	loss: 2.4715881943702698 
+Train [8/11] | Epoch [29/70] |	loss: 2.5172946006059647 
+Train [8/11] | Epoch [30/70] |	loss: 2.5037720799446106 
+Train [8/11] | Epoch [31/70] |	loss: 2.4626980274915695 
+Train [8/11] | Epoch [32/70] |	loss: 2.4701000303030014 
+Train [8/11] | Epoch [33/70] |	loss: 2.4794904068112373 
+Train [8/11] | Epoch [34/70] |	loss: 2.504771899431944 
+Train [8/11] | Epoch [35/70] |	loss: 2.4434913024306297 
+Train [8/11] | Epoch [36/70] |	loss: 2.4651609510183334 
+Train [8/11] | Epoch [37/70] |	loss: 2.4308255687355995 
+Train [8/11] | Epoch [38/70] |	loss: 2.437069311738014 
+Train [8/11] | Epoch [39/70] |	loss: 2.5100476443767548 
+Train [8/11] | Epoch [40/70] |	loss: 2.4948569163680077 
+Train [8/11] | Epoch [41/70] |	loss: 2.521391712129116 
+Train [8/11] | Epoch [42/70] |	loss: 2.4886393025517464 
+Train [8/11] | Epoch [43/70] |	loss: 2.4482549130916595 
+Train [8/11] | Epoch [44/70] |	loss: 2.4770208820700645 
+Train [8/11] | Epoch [45/70] |	loss: 2.5695551708340645 
+Train [8/11] | Epoch [46/70] |	loss: 2.499363638460636 
+Train [8/11] | Epoch [47/70] |	loss: 2.4502950236201286 
+Train [8/11] | Epoch [48/70] |	loss: 2.447451837360859 
+Train [8/11] | Epoch [49/70] |	loss: 2.475719355046749 
+Train [8/11] | Epoch [50/70] |	loss: 2.4627837762236595 
+Train [8/11] | Epoch [51/70] |	loss: 2.3567740619182587 
+Train [8/11] | Epoch [52/70] |	loss: 2.3033778369426727 
+Train [8/11] | Epoch [53/70] |	loss: 2.2818202152848244 
+Train [8/11] | Epoch [54/70] |	loss: 2.2772103287279606 
+Train [8/11] | Epoch [55/70] |	loss: 2.2651880197227 
+Train [8/11] | Epoch [56/70] |	loss: 2.2637853547930717 
+Train [8/11] | Epoch [57/70] |	loss: 2.2689178809523582 
+Train [8/11] | Epoch [58/70] |	loss: 2.2569326870143414 
+Train [8/11] | Epoch [59/70] |	loss: 2.2611012011766434 
+Train [8/11] | Epoch [60/70] |	loss: 2.247148785740137 
+Train [8/11] | Epoch [61/70] |	loss: 2.251199644058943 
+Train [8/11] | Epoch [62/70] |	loss: 2.2343593053519726 
+Train [8/11] | Epoch [63/70] |	loss: 2.2454232536256313 
+Train [8/11] | Epoch [64/70] |	loss: 2.232063177973032 
+Train [8/11] | Epoch [65/70] |	loss: 2.2363129146397114 
+Train [8/11] | Epoch [66/70] |	loss: 2.224992100149393 
+Train [8/11] | Epoch [67/70] |	loss: 2.2278681360185146 
+Train [8/11] | Epoch [68/70] |	loss: 2.2204530760645866 
+Train [8/11] | Epoch [69/70] |	loss: 2.2258100658655167 
+Train [8/11] | Epoch [70/70] |	loss: 2.226615097373724 
+after task
+Building & updating memory.
+after task
+Eval on 0->85.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.6142500000000001.
+Current acc: {'total': 0.527, '00-09': 0.592, '10-19': 0.536, '20-29': 0.4, '30-39': 0.423, '40-49': 0.548, '50-59': 0.574, '60-69': 0.469, '70-79': 0.562, '80-89': 0.754}.
+Avg inc acc top5: 0.8691249999999998.
+Current acc top5: {'total': 0.813}.
+Forgetting: 0.11290000000000003.
+Cord metric: 0.61.
+Old accuracy: 0.51, mean: 0.58.
+New accuracy: 0.75, mean: 0.74.
+================Task 8 Start!================
+Testing on False unseen tasks (max class = 90).
+Set memory of size: 1955.
+Before task
+Now 22 examplars per class.
+================Task 8 Training!================
+The training samples number: 4455
+Train on 85->90.
+train task
+nb 4455.
+Train [9/11] | Epoch [1/70] |	loss: 2.7892483547329903 
+Train [9/11] | Epoch [2/70] |	loss: 2.5819964930415154 
+Train [9/11] | Epoch [3/70] |	loss: 2.4886022955179214 
+Train [9/11] | Epoch [4/70] |	loss: 2.4835971146821976 
+Train [9/11] | Epoch [5/70] |	loss: 2.487277314066887 
+Train [9/11] | Epoch [6/70] |	loss: 2.4674324318766594 
+Train [9/11] | Epoch [7/70] |	loss: 2.474248170852661 
+Train [9/11] | Epoch [8/70] |	loss: 2.4545553252100945 
+Train [9/11] | Epoch [9/70] |	loss: 2.462723955512047 
+Train [9/11] | Epoch [10/70] |	loss: 2.4531379118561745 
+Train [9/11] | Epoch [11/70] |	loss: 2.4459015876054764 
+Train [9/11] | Epoch [12/70] |	loss: 2.435251586139202 
+Train [9/11] | Epoch [13/70] |	loss: 2.4627997502684593 
+Train [9/11] | Epoch [14/70] |	loss: 2.468613490462303 
+Train [9/11] | Epoch [15/70] |	loss: 2.4466328099370003 
+Train [9/11] | Epoch [16/70] |	loss: 2.4270553588867188 
+Train [9/11] | Epoch [17/70] |	loss: 2.4327645003795624 
+Train [9/11] | Epoch [18/70] |	loss: 2.449533946812153 
+Train [9/11] | Epoch [19/70] |	loss: 2.464927725493908 
+Train [9/11] | Epoch [20/70] |	loss: 2.445388190448284 
+Train [9/11] | Epoch [21/70] |	loss: 2.440597213804722 
+Train [9/11] | Epoch [22/70] |	loss: 2.4296360686421394 
+Train [9/11] | Epoch [23/70] |	loss: 2.431473173201084 
+Train [9/11] | Epoch [24/70] |	loss: 2.449837937951088 
+Train [9/11] | Epoch [25/70] |	loss: 2.444245755672455 
+Train [9/11] | Epoch [26/70] |	loss: 2.4283413738012314 
+Train [9/11] | Epoch [27/70] |	loss: 2.4486825466156006 
+Train [9/11] | Epoch [28/70] |	loss: 2.424247346818447 
+Train [9/11] | Epoch [29/70] |	loss: 2.421715885400772 
+Train [9/11] | Epoch [30/70] |	loss: 2.426376961171627 
+Train [9/11] | Epoch [31/70] |	loss: 2.424884684383869 
+Train [9/11] | Epoch [32/70] |	loss: 2.430932931602001 
+Train [9/11] | Epoch [33/70] |	loss: 2.415362186729908 
+Train [9/11] | Epoch [34/70] |	loss: 2.421127676963806 
+Train [9/11] | Epoch [35/70] |	loss: 2.415927231311798 
+Train [9/11] | Epoch [36/70] |	loss: 2.406130902469158 
+Train [9/11] | Epoch [37/70] |	loss: 2.408537320792675 
+Train [9/11] | Epoch [38/70] |	loss: 2.4444472566246986 
+Train [9/11] | Epoch [39/70] |	loss: 2.4434746727347374 
+Train [9/11] | Epoch [40/70] |	loss: 2.424090400338173 
+Train [9/11] | Epoch [41/70] |	loss: 2.4182373732328415 
+Train [9/11] | Epoch [42/70] |	loss: 2.424834430217743 
+Train [9/11] | Epoch [43/70] |	loss: 2.4463088139891624 
+Train [9/11] | Epoch [44/70] |	loss: 2.4408206045627594 
+Train [9/11] | Epoch [45/70] |	loss: 2.424510709941387 
+Train [9/11] | Epoch [46/70] |	loss: 2.413203239440918 
+Train [9/11] | Epoch [47/70] |	loss: 2.4185964167118073 
+Train [9/11] | Epoch [48/70] |	loss: 2.4156312122941017 
+Train [9/11] | Epoch [49/70] |	loss: 2.403054304420948 
+Train [9/11] | Epoch [50/70] |	loss: 2.432351939380169 
+Train [9/11] | Epoch [51/70] |	loss: 2.346040427684784 
+Train [9/11] | Epoch [52/70] |	loss: 2.2907094545662403 
+Train [9/11] | Epoch [53/70] |	loss: 2.2794137932360172 
+Train [9/11] | Epoch [54/70] |	loss: 2.2711346596479416 
+Train [9/11] | Epoch [55/70] |	loss: 2.267061121761799 
+Train [9/11] | Epoch [56/70] |	loss: 2.2625671327114105 
+Train [9/11] | Epoch [57/70] |	loss: 2.2682633101940155 
+Train [9/11] | Epoch [58/70] |	loss: 2.257956512272358 
+Train [9/11] | Epoch [59/70] |	loss: 2.256518043577671 
+Train [9/11] | Epoch [60/70] |	loss: 2.2588728442788124 
+Train [9/11] | Epoch [61/70] |	loss: 2.2525079995393753 
+Train [9/11] | Epoch [62/70] |	loss: 2.2515977807343006 
+Train [9/11] | Epoch [63/70] |	loss: 2.2534732818603516 
+Train [9/11] | Epoch [64/70] |	loss: 2.248134024441242 
+Train [9/11] | Epoch [65/70] |	loss: 2.2445971220731735 
+Train [9/11] | Epoch [66/70] |	loss: 2.2406743988394737 
+Train [9/11] | Epoch [67/70] |	loss: 2.2409992031753063 
+Train [9/11] | Epoch [68/70] |	loss: 2.236717477440834 
+Train [9/11] | Epoch [69/70] |	loss: 2.2358321994543076 
+Train [9/11] | Epoch [70/70] |	loss: 2.2361480444669724 
+after task
+Building & updating memory.
+after task
+Eval on 0->90.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.6028888888888889.
+Current acc: {'total': 0.512, '00-09': 0.559, '10-19': 0.487, '20-29': 0.402, '30-39': 0.391, '40-49': 0.53, '50-59': 0.603, '60-69': 0.45, '70-79': 0.504, '80-89': 0.678}.
+Avg inc acc top5: 0.8618888888888887.
+Current acc top5: {'total': 0.804}.
+Forgetting: 0.2137.
+Cord metric: 0.60.
+Old accuracy: 0.50, mean: 0.57.
+New accuracy: 0.76, mean: 0.74.
+================Task 9 Start!================
+Testing on False unseen tasks (max class = 95).
+Set memory of size: 1980.
+Before task
+Now 21 examplars per class.
+================Task 9 Training!================
+The training samples number: 4480
+Train on 90->95.
+train task
+nb 4480.
+Train [10/11] | Epoch [1/70] |	loss: 2.9348687902092934 
+Train [10/11] | Epoch [2/70] |	loss: 2.725011371076107 
+Train [10/11] | Epoch [3/70] |	loss: 2.656479813158512 
+Train [10/11] | Epoch [4/70] |	loss: 2.6424227207899094 
+Train [10/11] | Epoch [5/70] |	loss: 2.614182837307453 
+Train [10/11] | Epoch [6/70] |	loss: 2.6133241578936577 
+Train [10/11] | Epoch [7/70] |	loss: 2.5926538333296776 
+Train [10/11] | Epoch [8/70] |	loss: 2.5871943533420563 
+Train [10/11] | Epoch [9/70] |	loss: 2.578362360596657 
+Train [10/11] | Epoch [10/70] |	loss: 2.5796274915337563 
+Train [10/11] | Epoch [11/70] |	loss: 2.573192521929741 
+Train [10/11] | Epoch [12/70] |	loss: 2.5652028992772102 
+Train [10/11] | Epoch [13/70] |	loss: 2.551907315850258 
+Train [10/11] | Epoch [14/70] |	loss: 2.573335461318493 
+Train [10/11] | Epoch [15/70] |	loss: 2.5742148011922836 
+Train [10/11] | Epoch [16/70] |	loss: 2.5626539438962936 
+Train [10/11] | Epoch [17/70] |	loss: 2.550436832010746 
+Train [10/11] | Epoch [18/70] |	loss: 2.5397436767816544 
+Train [10/11] | Epoch [19/70] |	loss: 2.5440963357686996 
+Train [10/11] | Epoch [20/70] |	loss: 2.5429036170244217 
+Train [10/11] | Epoch [21/70] |	loss: 2.5545321330428123 
+Train [10/11] | Epoch [22/70] |	loss: 2.565166264772415 
+Train [10/11] | Epoch [23/70] |	loss: 2.552223786711693 
+Train [10/11] | Epoch [24/70] |	loss: 2.5254185050725937 
+Train [10/11] | Epoch [25/70] |	loss: 2.5367101058363914 
+Train [10/11] | Epoch [26/70] |	loss: 2.5333686619997025 
+Train [10/11] | Epoch [27/70] |	loss: 2.533494293689728 
+Train [10/11] | Epoch [28/70] |	loss: 2.5181783959269524 
+Train [10/11] | Epoch [29/70] |	loss: 2.521464042365551 
+Train [10/11] | Epoch [30/70] |	loss: 2.5273974612355232 
+Train [10/11] | Epoch [31/70] |	loss: 2.541058488190174 
+Train [10/11] | Epoch [32/70] |	loss: 2.5305791199207306 
+Train [10/11] | Epoch [33/70] |	loss: 2.542091928422451 
+Train [10/11] | Epoch [34/70] |	loss: 2.5257701948285103 
+Train [10/11] | Epoch [35/70] |	loss: 2.5360390469431877 
+Train [10/11] | Epoch [36/70] |	loss: 2.5445932373404503 
+Train [10/11] | Epoch [37/70] |	loss: 2.5292951613664627 
+Train [10/11] | Epoch [38/70] |	loss: 2.4913853630423546 
+Train [10/11] | Epoch [39/70] |	loss: 2.501162052154541 
+Train [10/11] | Epoch [40/70] |	loss: 2.5102942883968353 
+Train [10/11] | Epoch [41/70] |	loss: 2.528633937239647 
+Train [10/11] | Epoch [42/70] |	loss: 2.523820497095585 
+Train [10/11] | Epoch [43/70] |	loss: 2.5218121334910393 
+Train [10/11] | Epoch [44/70] |	loss: 2.516804851591587 
+Train [10/11] | Epoch [45/70] |	loss: 2.503539025783539 
+Train [10/11] | Epoch [46/70] |	loss: 2.504423126578331 
+Train [10/11] | Epoch [47/70] |	loss: 2.5136464536190033 
+Train [10/11] | Epoch [48/70] |	loss: 2.5295720994472504 
+Train [10/11] | Epoch [49/70] |	loss: 2.5191014483571053 
+Train [10/11] | Epoch [50/70] |	loss: 2.5263077467679977 
+Train [10/11] | Epoch [51/70] |	loss: 2.437333323061466 
+Train [10/11] | Epoch [52/70] |	loss: 2.382257454097271 
+Train [10/11] | Epoch [53/70] |	loss: 2.368394821882248 
+Train [10/11] | Epoch [54/70] |	loss: 2.3679963126778603 
+Train [10/11] | Epoch [55/70] |	loss: 2.3538422510027885 
+Train [10/11] | Epoch [56/70] |	loss: 2.3544825091958046 
+Train [10/11] | Epoch [57/70] |	loss: 2.3436207622289658 
+Train [10/11] | Epoch [58/70] |	loss: 2.344499558210373 
+Train [10/11] | Epoch [59/70] |	loss: 2.337231256067753 
+Train [10/11] | Epoch [60/70] |	loss: 2.3391435146331787 
+Train [10/11] | Epoch [61/70] |	loss: 2.3332579508423805 
+Train [10/11] | Epoch [62/70] |	loss: 2.3297220915555954 
+Train [10/11] | Epoch [63/70] |	loss: 2.3312904313206673 
+Train [10/11] | Epoch [64/70] |	loss: 2.3354085460305214 
+Train [10/11] | Epoch [65/70] |	loss: 2.323154553771019 
+Train [10/11] | Epoch [66/70] |	loss: 2.3222720324993134 
+Train [10/11] | Epoch [67/70] |	loss: 2.3236990720033646 
+Train [10/11] | Epoch [68/70] |	loss: 2.3195545449852943 
+Train [10/11] | Epoch [69/70] |	loss: 2.3216223791241646 
+Train [10/11] | Epoch [70/70] |	loss: 2.318582981824875 
+after task
+Building & updating memory.
+after task
+Eval on 0->95.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.592.
+Current acc: {'total': 0.494, '00-09': 0.529, '10-19': 0.465, '20-29': 0.337, '30-39': 0.402, '40-49': 0.499, '50-59': 0.579, '60-69': 0.45, '70-79': 0.495, '80-89': 0.581, '90-99': 0.71}.
+Avg inc acc top5: 0.8549999999999999.
+Current acc top5: {'total': 0.793}.
+Forgetting: 0.154.
+Cord metric: 0.59.
+Old accuracy: 0.48, mean: 0.56.
+New accuracy: 0.71, mean: 0.74.
+================Task 10 Start!================
+Testing on False unseen tasks (max class = 100).
+Set memory of size: 1995.
+Before task
+Now 20 examplars per class.
+================Task 10 Training!================
+The training samples number: 4495
+Train on 95->100.
+train task
+nb 4495.
+Train [11/11] | Epoch [1/70] |	loss: 3.221609205007553 
+Train [11/11] | Epoch [2/70] |	loss: 3.10777086019516 
+Train [11/11] | Epoch [3/70] |	loss: 2.9624375700950623 
+Train [11/11] | Epoch [4/70] |	loss: 2.9015550762414932 
+Train [11/11] | Epoch [5/70] |	loss: 2.8988100737333298 
+Train [11/11] | Epoch [6/70] |	loss: 2.9250520914793015 
+Train [11/11] | Epoch [7/70] |	loss: 2.884703144431114 
+Train [11/11] | Epoch [8/70] |	loss: 2.8704771250486374 
+Train [11/11] | Epoch [9/70] |	loss: 2.8354075849056244 
+Train [11/11] | Epoch [10/70] |	loss: 2.8335328549146652 
+Train [11/11] | Epoch [11/70] |	loss: 2.832458719611168 
+Train [11/11] | Epoch [12/70] |	loss: 2.8830916732549667 
+Train [11/11] | Epoch [13/70] |	loss: 2.8574608638882637 
+Train [11/11] | Epoch [14/70] |	loss: 2.815637491643429 
+Train [11/11] | Epoch [15/70] |	loss: 2.834123834967613 
+Train [11/11] | Epoch [16/70] |	loss: 2.8050608038902283 
+Train [11/11] | Epoch [17/70] |	loss: 2.8215638399124146 
+Train [11/11] | Epoch [18/70] |	loss: 2.806748613715172 
+Train [11/11] | Epoch [19/70] |	loss: 2.875632092356682 
+Train [11/11] | Epoch [20/70] |	loss: 2.8184365332126617 
+Train [11/11] | Epoch [21/70] |	loss: 2.8421763703227043 
+Train [11/11] | Epoch [22/70] |	loss: 2.8124756291508675 
+Train [11/11] | Epoch [23/70] |	loss: 2.8274401277303696 
+Train [11/11] | Epoch [24/70] |	loss: 2.8162083476781845 
+Train [11/11] | Epoch [25/70] |	loss: 2.81425978243351 
+Train [11/11] | Epoch [26/70] |	loss: 2.856356717646122 
+Train [11/11] | Epoch [27/70] |	loss: 2.858621023595333 
+Train [11/11] | Epoch [28/70] |	loss: 2.8099106401205063 
+Train [11/11] | Epoch [29/70] |	loss: 2.7883376330137253 
+Train [11/11] | Epoch [30/70] |	loss: 2.9105389788746834 
+Train [11/11] | Epoch [31/70] |	loss: 2.8443897366523743 
+Train [11/11] | Epoch [32/70] |	loss: 2.8708413913846016 
+Train [11/11] | Epoch [33/70] |	loss: 2.7956755980849266 
+Train [11/11] | Epoch [34/70] |	loss: 2.7620927914977074 
+Train [11/11] | Epoch [35/70] |	loss: 2.778976045548916 
+Train [11/11] | Epoch [36/70] |	loss: 2.7836521193385124 
+Train [11/11] | Epoch [37/70] |	loss: 2.8069685474038124 
+Train [11/11] | Epoch [38/70] |	loss: 2.780121475458145 
+Train [11/11] | Epoch [39/70] |	loss: 2.7616781145334244 
+Train [11/11] | Epoch [40/70] |	loss: 2.8728243187069893 
+Train [11/11] | Epoch [41/70] |	loss: 2.7931263521313667 
+Train [11/11] | Epoch [42/70] |	loss: 2.7997054010629654 
+Train [11/11] | Epoch [43/70] |	loss: 2.8560226783156395 
+Train [11/11] | Epoch [44/70] |	loss: 2.8145147189497948 
+Train [11/11] | Epoch [45/70] |	loss: 2.7890729010105133 
+Train [11/11] | Epoch [46/70] |	loss: 2.781119592487812 
+Train [11/11] | Epoch [47/70] |	loss: 2.8102661222219467 
+Train [11/11] | Epoch [48/70] |	loss: 2.7791598439216614 
+Train [11/11] | Epoch [49/70] |	loss: 2.807465210556984 
+Train [11/11] | Epoch [50/70] |	loss: 2.785477750003338 
+Train [11/11] | Epoch [51/70] |	loss: 2.694836623966694 
+Train [11/11] | Epoch [52/70] |	loss: 2.6375319957733154 
+Train [11/11] | Epoch [53/70] |	loss: 2.6221819296479225 
+Train [11/11] | Epoch [54/70] |	loss: 2.6180093958973885 
+Train [11/11] | Epoch [55/70] |	loss: 2.5989904329180717 
+Train [11/11] | Epoch [56/70] |	loss: 2.5918823555111885 
+Train [11/11] | Epoch [57/70] |	loss: 2.5924209281802177 
+Train [11/11] | Epoch [58/70] |	loss: 2.597224824130535 
+Train [11/11] | Epoch [59/70] |	loss: 2.5845688804984093 
+Train [11/11] | Epoch [60/70] |	loss: 2.5895797312259674 
+Train [11/11] | Epoch [61/70] |	loss: 2.5848506465554237 
+Train [11/11] | Epoch [62/70] |	loss: 2.5893032178282738 
+Train [11/11] | Epoch [63/70] |	loss: 2.584984488785267 
+Train [11/11] | Epoch [64/70] |	loss: 2.586790457367897 
+Train [11/11] | Epoch [65/70] |	loss: 2.5680724382400513 
+Train [11/11] | Epoch [66/70] |	loss: 2.561382934451103 
+Train [11/11] | Epoch [67/70] |	loss: 2.571242466568947 
+Train [11/11] | Epoch [68/70] |	loss: 2.564965456724167 
+Train [11/11] | Epoch [69/70] |	loss: 2.5590138286352158 
+Train [11/11] | Epoch [70/70] |	loss: 2.5552690625190735 
+after task
+Building & updating memory.
+after task
+Saving model at results\dev\icarl\202401\week_1\20240103_icarl_cifar100_10steps\net_0_task_10.pth.
+Saving metadata at results\dev\icarl\202401\week_1\20240103_icarl_cifar100_10steps\meta_0_task_10.pkl.
+Eval on 0->100.
+eval task
+icarl_cifar100_10steps
+Avg inc acc: 0.5792727272727273.
+Current acc: {'total': 0.452, '00-09': 0.507, '10-19': 0.401, '20-29': 0.3, '30-39': 0.338, '40-49': 0.464, '50-59': 0.528, '60-69': 0.41, '70-79': 0.481, '80-89': 0.53, '90-99': 0.565}.
+Avg inc acc top5: 0.8479090909090907.
+Current acc top5: {'total': 0.777}.
+Forgetting: 0.2660909090909091.
+Cord metric: 0.57.
+Old accuracy: 0.44, mean: 0.55.
+New accuracy: 0.66, mean: 0.73.
+Average Incremental Accuracy: 0.5792727272727273.
+Label was: icarl_cifar100_10steps
+Results done on 1 seeds: avg: 57.93, last: 45.2, forgetting: 26.61
+Individual results avg: [57.93]
+Individual results last: [45.2]
+Individual results forget: [26.61]
+Command was D:/go_to_D/ML/Final/LibContinual/run_trainer.py
+Time cost :  2344.0415213108063
