@@ -41,10 +41,11 @@ if __name__ == "__main__":
 
     # config = Config("./config/podnet_nme_cifar100_50steps.yaml").get_config_dict()
     # config = Config("./config/podnet_nme_cifar100_25steps.yaml").get_config_dict()
-    config = Config("./config/podnet_nme_cifar100_10steps.yaml").get_config_dict()
+    # config = Config("./config/podnet_nme_cifar100_10steps.yaml").get_config_dict()
     # config = Config("./config/podnet_nme_cifar100_5steps.yaml").get_config_dict()
 
     # config = Config("./config/podnet_nme_cifar10_5steps.yaml").get_config_dict()
+    config = Config("./config/podnet_cnn_cifar10_5steps.yaml").get_config_dict()
     # config = Config("./config/ucir_cifar100.yaml").get_config_dict()
     # config = Config("./config/icarl_cifar100.yaml").get_config_dict()
     # config = Config("./config/lwm_cifar100.yaml").get_config_dict()

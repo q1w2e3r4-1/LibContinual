@@ -5,7 +5,7 @@ save_path: .
 device: [0]
 initial_increment: 5
 increment: 1
-label: podnet_nme_cifar10_xsteps
+label: podnet_nme_cifar10_5steps
 save_model: last
 eval_type: nme
 random_classes: True
